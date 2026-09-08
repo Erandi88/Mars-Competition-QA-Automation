@@ -10,6 +10,7 @@ using System.IO;
 using System.Text.Json;
 using qa_dotnet_cucumber.Config;
 using qa_dotnet_cucumber.Pages;
+
 namespace qa_dotnet_cucumber.Hooks
 {
     [Binding]
@@ -32,10 +33,27 @@ namespace qa_dotnet_cucumber.Hooks
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            string currentDir = Directory.GetCurrentDirectory();
+            /*string currentDir = Directory.GetCurrentDirectory();
             string settingsPath = Path.Combine(currentDir, "settings.json");
             string json = File.ReadAllText(settingsPath);
-            _settings = JsonSerializer.Deserialize<TestSettings>(json);
+            _settings = JsonSerializer.Deserialize<TestSettings>(json);*/
+
+            string currentDir = Directory.GetCurrentDirectory();
+
+            string localSettingsPath = Path.Combine(currentDir, "settings.local.json");
+            string defaultSettingsPath = Path.Combine(currentDir, "settings.json");
+
+            string settingsPath = File.Exists(localSettingsPath)
+                ? localSettingsPath
+                : defaultSettingsPath;
+
+            string json = File.ReadAllText(settingsPath);
+
+            _settings = JsonSerializer.Deserialize<TestSettings>(json)
+                ?? throw new InvalidOperationException(
+                    $"Unable to load settings from {settingsPath}");
+
+            Console.WriteLine($"Using settings file: {Path.GetFileName(settingsPath)}");
 
             // Get project root by navigating up from bin/Debug/net8.0
             string projectRoot = Path.GetFullPath(Path.Combine(currentDir, "..", ".."));
