@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using AventStack.ExtentReports.Gherkin.Model;
+using NUnit.Framework;
 using qa_dotnet_cucumber.Context;
 using qa_dotnet_cucumber.Helpers;
 using qa_dotnet_cucumber.Pages;
@@ -81,5 +82,85 @@ namespace qa_dotnet_cucumber.Steps
                 Is.True,
                 $"Education record '{education.University}' should be displayed.");
         }
+
+        [Given("Education from \"(.*)\" exists")]
+        public void GivenEducationFromExists(string dataKey)
+        {
+            var education = JsonDataReader.GetEducationData(dataKey);
+
+            _educationPage.DeleteEducationIfExists(education.Country, education.University,education.Title,
+                                                    education.Degree,education.GraduationYear);
+
+            _educationPage.AddEducation(education.University, education.Country, education.Title, 
+                                        education.Degree, education.GraduationYear);
+
+            _testDataContext.CreatedEducations.Add(education);
+
+            bool isDisplayed = _educationPage.IsEducationDisplayed(education.Country, education.University,
+                                                    education.Title, education.Degree, education.GraduationYear);
+
+            Assert.That(isDisplayed,Is.True,
+                $"Education record '{education.University}' should exist before the edit.");
+        }
+
+        [When("I update Education from \"(.*)\" using \"(.*)\"")]
+        public void WhenIUpdateEducationFromUsing(string existingDataKey,string updatedDataKey)
+        {
+            var existingEducation = JsonDataReader.GetEducationData(existingDataKey);
+
+            var updatedEducation = JsonDataReader.GetEducationData(updatedDataKey);
+
+            _educationPage.UpdateEducation(
+                existingEducation.Country,
+                existingEducation.University,
+                existingEducation.Title,
+                existingEducation.Degree,
+                existingEducation.GraduationYear,
+
+                updatedEducation.University,
+                updatedEducation.Country,
+                updatedEducation.Title,
+                updatedEducation.Degree,
+                updatedEducation.GraduationYear);
+
+            _testDataContext.CreatedEducations.Add(updatedEducation);
+        }
+
+        [Then("the Education from \"(.*)\" should not be displayed")]
+        public void ThenTheEducationFromShouldNotBeDisplayed(string dataKey)
+        {
+            var education =
+                JsonDataReader.GetEducationData(dataKey);
+
+            bool isRemoved =
+                _educationPage.IsEducationRemoved(
+                    education.Country,
+                    education.University,
+                    education.Title,
+                    education.Degree,
+                    education.GraduationYear);
+
+            Assert.That(
+                isRemoved,
+                Is.True,
+                $"Education record '{education.University}' should not be displayed.");
+        }
+
+        [When("I delete Education from \"(.*)\"")]
+        public void WhenIDeleteEducationFrom(string dataKey)
+        {
+            var education = JsonDataReader.GetEducationData(dataKey);
+
+            _educationPage.DeleteEducation(
+                education.Country,
+                education.University,
+                education.Title,
+                education.Degree,
+                education.GraduationYear);
+        }
+
+        
+
+
     }
 }

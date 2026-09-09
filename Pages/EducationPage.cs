@@ -16,48 +16,77 @@ namespace qa_dotnet_cucumber.Pages
         private readonly By AddNewButton =
             By.XPath("//div[contains(@class,'active')]//div[contains(@class,'ui teal button') and normalize-space()='Add New']");
 
-        private readonly By UniversityField =
-            By.XPath("//input[@placeholder='College/University Name']");
+        private readonly By UniversityField = By.XPath("//input[@placeholder='College/University Name']");
 
-        private readonly By CountryDropdown =
-            By.XPath("//select[@name='country']");
+        private readonly By CountryDropdown = By.XPath("//select[@name='country']");
 
-        private readonly By TitleDropdown =
-            By.XPath("//select[@name='title']");
+        private readonly By TitleDropdown = By.XPath("//select[@name='title']");
 
-        private readonly By DegreeField =
-            By.XPath("//input[@placeholder='Degree']");
+        private readonly By DegreeField = By.XPath("//input[@placeholder='Degree']");
 
-        private readonly By GraduationYearDropdown =
-            By.XPath("//select[@name='yearOfGraduation']");
+        private readonly By GraduationYearDropdown = By.XPath("//select[@name='yearOfGraduation']");
 
-        private readonly By AddButton =
-            By.XPath("//input[@value='Add']");
+        private readonly By AddButton = By.XPath("//input[@value='Add']");
 
-        private readonly By CancelButton =
-            By.XPath("//input[@value='Cancel']");
+        private readonly By CancelButton = By.XPath("//input[@value='Cancel']");
 
-        private By GetEducationRowLocator(string country,string university,string title,string degree,string graduationYear)
+        private readonly By UpdateButton = By.XPath("//input[@value='Update']");
+
+        /* private By GetEducationRowLocator(string country,string university,string title,string degree,string graduationYear)
+         {
+             return By.XPath(
+                 $"//tbody/tr[" +
+                 $"td[1][normalize-space()='{country}'] and " +
+                 $"td[2][normalize-space()='{university}'] and " +
+                 $"td[3][normalize-space()='{title}'] and " +
+                 $"td[4][normalize-space()='{degree}'] and " +
+                 $"td[5][normalize-space()='{graduationYear}']]");
+         }*/
+
+        private string GetEducationRowXPath(string country, string university, string title, string degree,string graduationYear)
         {
-            return By.XPath(
+            return
                 $"//tbody/tr[" +
                 $"td[1][normalize-space()='{country}'] and " +
                 $"td[2][normalize-space()='{university}'] and " +
                 $"td[3][normalize-space()='{title}'] and " +
                 $"td[4][normalize-space()='{degree}'] and " +
-                $"td[5][normalize-space()='{graduationYear}']]");
+                $"td[5][normalize-space()='{graduationYear}']]";
         }
 
-        private By GetEducationDeleteButtonLocator(string country,string university,string title, string degree,string graduationYear)
+        private By GetEducationRowLocator(string country, string university, string title, string degree, string graduationYear)
         {
             return By.XPath(
-                $"//tbody/tr[" +
-                $"td[1][normalize-space()='{country}'] and " +
-                $"td[2][normalize-space()='{university}'] and " +
-                $"td[3][normalize-space()='{title}'] and " +
-                $"td[4][normalize-space()='{degree}'] and " +
-                $"td[5][normalize-space()='{graduationYear}']]" +
-                $"//i[contains(@class,'remove')]");
+                GetEducationRowXPath(
+                    country,
+                    university,
+                    title,
+                    degree,
+                    graduationYear));
+        }
+
+        private By GetEducationEditButtonLocator(string country, string university, string title, string degree, string graduationYear)
+        {
+            return By.XPath(
+                GetEducationRowXPath(
+                    country,
+                    university,
+                    title,
+                    degree,
+                    graduationYear)
+                + "//i[contains(@class,'write')]");
+        }
+
+        private By GetEducationDeleteButtonLocator(string country, string university, string title, string degree, string graduationYear)
+        {
+            return By.XPath(
+                GetEducationRowXPath(
+                    country,
+                    university,
+                    title,
+                    degree,
+                    graduationYear)
+                + "//i[contains(@class,'remove')]");
         }
 
 
@@ -183,6 +212,47 @@ namespace qa_dotnet_cucumber.Pages
 
             ClickAddButton();
         }
+
+        //click edit button
+        public void ClickEditEducation(string country, string university, string title, string degree, string graduationYear)
+        {
+            var editButton = _wait.Until(ExpectedConditions.ElementToBeClickable(
+                    GetEducationEditButtonLocator(country, university, title, degree, graduationYear)));
+
+            editButton.Click();
+        }
+
+        //click update button
+        public void ClickUpdateButton()
+        {
+            var updateButton = _wait.Until(
+                ExpectedConditions.ElementToBeClickable(UpdateButton));
+
+            updateButton.Click();
+        }
+
+        //update edit form
+        public void UpdateEducation(string currentCountry,string currentUniversity,string currentTitle,string currentDegree,string currentGraduationYear,
+            string updatedUniversity,string updatedCountry,string updatedTitle,string updatedDegree,string updatedGraduationYear)
+        {
+            ClickEditEducation(currentCountry,currentUniversity, currentTitle, currentDegree, currentGraduationYear);
+
+            EnterUniversity(updatedUniversity);
+            SelectCountry(updatedCountry);
+            SelectTitle(updatedTitle);
+            EnterDegree(updatedDegree);
+            SelectGraduationYear(updatedGraduationYear);
+
+            ClickUpdateButton();
+        }
+
+        public void DeleteEducation(string country, string university, string title, string degree, string graduationYear) 
+        {
+            var deleteButton = _wait.Until(ExpectedConditions.ElementToBeClickable(GetEducationDeleteButtonLocator(country,university, title, degree, graduationYear)));
+            deleteButton.Click();
+        
+        }
+
 
 
         public bool IsEducationDisplayed(string country, string university,string title,string degree,string graduationYear)

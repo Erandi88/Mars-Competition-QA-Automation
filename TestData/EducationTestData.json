@@ -5,5 +5,29 @@
     "title": "B.Sc",
     "degree": "Computer Science",
     "graduationYear": "2020"
+  },
+
+  "validEditExisting": {
+    "country": "New Zealand",
+    "university": "Auto University Wellington",
+    "title": "B.Sc",
+    "degree": "Information Technology",
+    "graduationYear": "2019"
+  },
+
+  "validEditUpdated": {
+    "country": "New Zealand",
+    "university": "Auto University Wellington",
+    "title": "B.Sc",
+    "degree": "Software Engineering",
+    "graduationYear": "2021"
+  },
+
+  "validDelete": {
+    "country": "Australia",
+    "university": "Auto University Australia",
+    "title": "B.Sc",
+    "degree": "Teaching",
+    "graduationYear": "2025"
   }
 }
