@@ -1,15 +1,16 @@
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using Reqnroll;
-using Reqnroll.BoDi;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using qa_dotnet_cucumber.Config;
+using qa_dotnet_cucumber.Context;
+using qa_dotnet_cucumber.Pages;
+using Reqnroll;
+using Reqnroll.BoDi;
 using System.IO;
 using System.Text.Json;
-using qa_dotnet_cucumber.Config;
-using qa_dotnet_cucumber.Pages;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace qa_dotnet_cucumber.Hooks
 {
@@ -85,6 +86,8 @@ namespace qa_dotnet_cucumber.Hooks
             _objectContainer.RegisterInstanceAs<IWebDriver>(driver);
             _objectContainer.RegisterInstanceAs(new NavigationHelper(driver));
             _objectContainer.RegisterInstanceAs(new LoginPage(driver));
+            _objectContainer.RegisterInstanceAs(new EducationPage(driver));
+            _objectContainer.RegisterInstanceAs(new TestDataContext());
 
             lock (_reportLock)
             {
@@ -121,8 +124,51 @@ namespace qa_dotnet_cucumber.Hooks
         public void AfterScenario()
         {
             var driver = _objectContainer.Resolve<IWebDriver>();
-            driver?.Quit();
-            Console.WriteLine($"Finished scenario on Thread {Thread.CurrentThread.ManagedThreadId} at {DateTime.Now}");
+
+            try
+            {
+                var testDataContext =
+                    _objectContainer.Resolve<TestDataContext>();
+
+                var educationPage =
+                    _objectContainer.Resolve<EducationPage>();
+
+                foreach (var education in testDataContext.CreatedEducations)
+                {
+                    educationPage.DeleteEducationIfExists(
+                        education.Country,
+                        education.University,
+                        education.Title,
+                        education.Degree,
+                        education.GraduationYear);
+
+                    bool isRemoved =
+                        educationPage.IsEducationRemoved(
+                            education.Country,
+                            education.University,
+                            education.Title,
+                            education.Degree,
+                            education.GraduationYear);
+
+                    if (isRemoved)
+                    {
+                        Console.WriteLine(
+                            $"Cleanup successful: {education.University}");
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                            $"Cleanup warning: Could not remove {education.University}");
+                    }
+                }
+            }
+            finally
+            {
+                driver?.Quit();
+
+                Console.WriteLine(
+                    $"Finished scenario on Thread {Thread.CurrentThread.ManagedThreadId} at {DateTime.Now}");
+            }
         }
 
         [AfterTestRun]

@@ -11,13 +11,9 @@ namespace qa_dotnet_cucumber.Pages
 
         // Locators
         private readonly By SignInLink = By.XPath("//a[normalize-space()='Sign In']");
-
         private readonly By EmailField = By.Name("email");
-
         private readonly By PasswordField = By.Name("password");
-
         private readonly By LoginButton = By.XPath("//button[normalize-space()='Login']");
-
         private readonly By SignOutButton = By.XPath("//button[normalize-space()='Sign Out']");
 
         public LoginPage(IWebDriver driver)
@@ -69,9 +65,7 @@ namespace qa_dotnet_cucumber.Pages
             try
             {
                 return _wait
-                    .Until(
-                        ExpectedConditions.ElementIsVisible(SignOutButton))
-                    .Displayed;
+                    .Until(ExpectedConditions.ElementIsVisible(SignOutButton)).Displayed;
             }
             catch (WebDriverTimeoutException)
             {
