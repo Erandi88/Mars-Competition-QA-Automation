@@ -159,7 +159,30 @@ namespace qa_dotnet_cucumber.Steps
                 education.GraduationYear);
         }
 
-        
+        [When("I edit Education from \"(.*)\" using \"(.*)\" and cancel the changes")]
+        public void WhenIEditEducationFromUsingAndCancelTheChanges(string existingDataKey,string updatedDataKey)
+        {
+            var existingEducation =
+                JsonDataReader.GetEducationData(existingDataKey);
+
+            var updatedEducation =
+                JsonDataReader.GetEducationData(updatedDataKey);
+
+            _educationPage.EditEducationAndCancel(
+                existingEducation.Country,
+                existingEducation.University,
+                existingEducation.Title,
+                existingEducation.Degree,
+                existingEducation.GraduationYear,
+
+                updatedEducation.University,
+                updatedEducation.Country,
+                updatedEducation.Title,
+                updatedEducation.Degree,
+                updatedEducation.GraduationYear);
+        }
+
+
 
 
     }

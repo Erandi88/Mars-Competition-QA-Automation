@@ -253,6 +253,20 @@ namespace qa_dotnet_cucumber.Pages
         
         }
 
+        public void EditEducationAndCancel(string currentCountry, string currentUniversity, string currentTitle, string currentDegree, string currentGraduationYear,
+            string updatedUniversity, string updatedCountry, string updatedTitle, string updatedDegree, string updatedGraduationYear)
+        {
+            ClickEditEducation(currentCountry, currentUniversity, currentTitle, currentDegree, currentGraduationYear);
+
+            EnterUniversity(updatedUniversity);
+            SelectCountry(updatedCountry);
+            SelectTitle(updatedTitle);
+            EnterDegree(updatedDegree);
+            SelectGraduationYear(updatedGraduationYear);
+
+            ClickCancelButton();
+        }
+
 
 
         public bool IsEducationDisplayed(string country, string university,string title,string degree,string graduationYear)

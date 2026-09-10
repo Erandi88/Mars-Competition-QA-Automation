@@ -23,3 +23,11 @@ Scenario: Delete an existing Education with valid details
     Given Education from "validDelete" exists
     When I delete Education from "validDelete"
     Then the Education from "validDelete" should not be displayed
+
+@education @positive
+Scenario: Cancel editing an existing Education
+    Given Education from "cancelEditExisting" exists
+    And Education from "cancelEditUpdated" does not exist
+    When I edit Education from "cancelEditExisting" using "cancelEditUpdated" and cancel the changes
+    Then the Education from "cancelEditExisting" should be displayed
+    And the Education from "cancelEditUpdated" should not be displayed

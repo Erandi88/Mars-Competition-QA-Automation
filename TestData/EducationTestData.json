@@ -29,5 +29,21 @@
     "title": "B.Sc",
     "degree": "Teaching",
     "graduationYear": "2025"
+  },
+
+  "cancelEditExisting": {
+    "country": "New Zealand",
+    "university": "Auto University Hamilton",
+    "title": "B.Sc",
+    "degree": "Information Technology",
+    "graduationYear": "2020"
+  },
+
+  "cancelEditUpdated": {
+    "country": "Australia",
+    "university": "Auto University Melbourne",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2023"
   }
 }
