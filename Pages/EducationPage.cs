@@ -314,5 +314,35 @@ namespace qa_dotnet_cucumber.Pages
                 elements[0].Click();
             }
         }
+
+        public bool IsEducationAlreadyExistMessageDisplayed()
+        {
+            try
+            {
+                var message = By.XPath(
+                    "//*[normalize-space()='This information is already exist.']"
+                );
+
+                return _wait
+                    .Until(ExpectedConditions.ElementIsVisible(message))
+                    .Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public int GetEducationRowCount(string country, string university, string title,string degree,string graduationYear)
+        {
+            var educationRow = GetEducationRowLocator(
+                country,
+                university,
+                title,
+                degree,
+                graduationYear);
+
+            return _driver.FindElements(educationRow).Count;
+        }
     }
 }

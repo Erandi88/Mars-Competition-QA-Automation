@@ -45,5 +45,21 @@
     "title": "B.A",
     "degree": "Software Engineering",
     "graduationYear": "2023"
+  },
+
+  "duplicateEditSource": {
+    "country": "New Zealand",
+    "university": "Auto University Auckland Duplicate Edit",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "duplicateEditTarget": {
+    "country": "Australia",
+    "university": "Auto University Sydney Duplicate Edit",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2023"
   }
 }

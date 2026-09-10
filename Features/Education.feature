@@ -31,3 +31,14 @@ Scenario: Cancel editing an existing Education
     When I edit Education from "cancelEditExisting" using "cancelEditUpdated" and cancel the changes
     Then the Education from "cancelEditExisting" should be displayed
     And the Education from "cancelEditUpdated" should not be displayed
+
+
+@education @negative @validinput
+Scenario: Update Education to match another existing Education
+    Given Education from "duplicateEditSource" exists
+    And Education from "duplicateEditTarget" exists
+    When I update Education from "duplicateEditSource" using "duplicateEditTarget"
+    Then the duplicate Education message should be displayed
+    And only one Education from "duplicateEditTarget" should be displayed
+    When I cancel the education edit
+    Then the Education from "duplicateEditSource" should be displayed

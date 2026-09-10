@@ -182,6 +182,41 @@ namespace qa_dotnet_cucumber.Steps
                 updatedEducation.GraduationYear);
         }
 
+        [Then("the duplicate Education message should be displayed")]
+        public void ThenTheDuplicateEducationMessageShouldBeDisplayed()
+        {
+            Assert.That(
+                _educationPage.IsEducationAlreadyExistMessageDisplayed(),
+                Is.True,
+                "The language already exist message should be displayed."
+            );
+        }
+
+        [Then("only one Education from \"(.*)\" should be displayed")]
+        public void ThenOnlyOneEducationFromShouldBeDisplayed(string dataKey)
+        {
+            var education = JsonDataReader.GetEducationData(dataKey);
+
+            int rowCount =
+                _educationPage.GetEducationRowCount(
+                    education.Country,
+                    education.University,
+                    education.Title,
+                    education.Degree,
+                    education.GraduationYear);
+
+            Assert.That(
+                rowCount,
+                Is.EqualTo(1),
+                $"Expected only one Education record '{education.University}', but found {rowCount}.");
+        }
+
+        [When("I cancel the education edit")]
+        public void WhenICancelTheEducationEdit()
+        {
+            _educationPage.ClickCancelButton();
+        }
+
 
 
 
