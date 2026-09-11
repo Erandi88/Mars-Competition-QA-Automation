@@ -58,3 +58,16 @@ Examples:
     | missingTitle          |
     | missingDegree         |
     | missingGraduationYear |
+
+
+@education @negative @invalidinput
+Scenario Outline: Add Education with spaces-only text field
+    Given Education from "<dataKey>" does not exist
+    When I attempt to add Education using "<dataKey>"
+    Then the invalid Education message should be displayed
+    And no Education record should be created
+
+Examples:
+    | dataKey              |
+    | spacesOnlyUniversity |
+    | spacesOnlyDegree     |

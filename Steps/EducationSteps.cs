@@ -267,6 +267,19 @@ namespace qa_dotnet_cucumber.Steps
         }
 
 
+        [Then("the invalid Education message should be displayed")]
+        public void ThenTheInvalidEducationMessageShouldBeDisplayed()
+        {
+            bool isDisplayed =
+                _educationPage.IsEducationInvalidMessageDisplayed();
+
+            Assert.That(
+                isDisplayed,
+                Is.True,
+                "Expected message 'Education information was invalid' to be displayed.");
+        }
+
+
 
 
     }

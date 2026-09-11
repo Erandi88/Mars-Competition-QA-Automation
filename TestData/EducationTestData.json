@@ -101,5 +101,21 @@
     "title": "B.Sc",
     "degree": "Computer Science",
     "graduationYear": ""
+  },
+
+  "spacesOnlyUniversity": {
+    "country": "New Zealand",
+    "university": "   ",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2022"
+  },
+
+  "spacesOnlyDegree": {
+    "country": "New Zealand",
+    "university": "Auto Spaces Degree University",
+    "title": "B.Sc",
+    "degree": "   ",
+    "graduationYear": "2022"
   }
 }

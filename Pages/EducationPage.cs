@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
@@ -83,6 +84,9 @@ namespace qa_dotnet_cucumber.Pages
 
         private readonly By EducationValidationMessage =
             By.XPath("//*[normalize-space()='Please enter all the fields']");
+
+        private readonly By EducationInvalidMessage =
+            By.XPath("//*[normalize-space()='Education information was invalid']");
 
 
         public EducationPage(IWebDriver driver)
@@ -266,9 +270,11 @@ namespace qa_dotnet_cucumber.Pages
         public void AttemptToAddEducation(string university, string country, string title, string degree, string graduationYear)
         {
             ClickAddNewButton();
-
+            Console.WriteLine("Status uni spce 1" +string.IsNullOrEmpty(university));
+            Console.WriteLine("Status degree spce 1" + string.IsNullOrEmpty(degree));
             if (!string.IsNullOrEmpty(university))
             {
+                Console.WriteLine("Status uni spce 2 "+ !string.IsNullOrEmpty(university));
                 EnterUniversity(university);
             }
 
@@ -284,6 +290,7 @@ namespace qa_dotnet_cucumber.Pages
 
             if (!string.IsNullOrEmpty(degree))
             {
+                Console.WriteLine("Status degree spce 2" + !string.IsNullOrEmpty(degree));
                 EnterDegree(degree);
             }
 
@@ -308,6 +315,22 @@ namespace qa_dotnet_cucumber.Pages
                 var message = _wait.Until(
                     ExpectedConditions.ElementIsVisible(
                         EducationValidationMessage));
+
+                return message.Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public bool IsEducationInvalidMessageDisplayed()
+        {
+            try
+            {
+                var message = _wait.Until(
+                    ExpectedConditions.ElementIsVisible(
+                        EducationInvalidMessage));
 
                 return message.Displayed;
             }
