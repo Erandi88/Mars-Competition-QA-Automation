@@ -61,5 +61,45 @@
     "title": "B.A",
     "degree": "Software Engineering",
     "graduationYear": "2023"
+  },
+
+  "missingUniversity": {
+    "country": "New Zealand",
+    "university": "",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "missingCountry": {
+    "country": "",
+    "university": "Auto Missing Country University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "missingTitle": {
+    "country": "New Zealand",
+    "university": "Auto Missing Title University",
+    "title": "",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "missingDegree": {
+    "country": "New Zealand",
+    "university": "Auto Missing Degree University",
+    "title": "B.Sc",
+    "degree": "",
+    "graduationYear": "2020"
+  },
+
+  "missingGraduationYear": {
+    "country": "New Zealand",
+    "university": "Auto Missing Year University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": ""
   }
 }

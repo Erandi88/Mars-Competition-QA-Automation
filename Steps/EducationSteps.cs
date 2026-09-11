@@ -217,6 +217,55 @@ namespace qa_dotnet_cucumber.Steps
             _educationPage.ClickCancelButton();
         }
 
+        [When("I attempt to add Education using \"(.*)\"")]
+        public void WhenIAttemptToAddEducationUsing(string dataKey)
+        {
+            var education =
+                JsonDataReader.GetEducationData(dataKey);
+
+            _testDataContext.EducationRowCountBeforeAction =
+                _educationPage.GetEducationTotalRowCount();
+
+            Console.WriteLine( "Education Row counter BEFORE : " + _educationPage.GetEducationTotalRowCount());
+
+            _educationPage.AttemptToAddEducation(
+                education.University,
+                education.Country,
+                education.Title,
+                education.Degree,
+                education.GraduationYear);
+
+            _testDataContext.CreatedEducations.Add(education);
+        }
+
+        [Then("the Education validation message should be displayed")]
+        public void ThenTheEducationValidationMessageShouldBeDisplayed()
+        {
+            bool isDisplayed =
+                _educationPage.IsEducationValidationMessageDisplayed();
+
+            Assert.That(
+                isDisplayed,
+                Is.True,
+                "Expected Education validation message 'Please enter all the fields' to be displayed.");
+        }
+
+        [Then("no Education record should be created")]
+        public void ThenNoEducationRecordShouldBeCreated()
+        {
+            int rowCountAfterAction =
+                _educationPage.GetEducationTotalRowCount();
+
+            Console.WriteLine("Education Row counter AFTER : " + rowCountAfterAction);
+
+            Assert.That(
+                rowCountAfterAction,
+                Is.EqualTo(_testDataContext.EducationRowCountBeforeAction),
+                $"Education row count should remain " +
+                $"{_testDataContext.EducationRowCountBeforeAction}, " +
+                $"but found {rowCountAfterAction}.");
+        }
+
 
 
 

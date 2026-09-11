@@ -42,3 +42,19 @@ Scenario: Update Education to match another existing Education
     And only one Education from "duplicateEditTarget" should be displayed
     When I cancel the education edit
     Then the Education from "duplicateEditSource" should be displayed
+
+
+@education @negative @invalidinput
+Scenario Outline: Add Education with missing required field
+    Given Education from "<dataKey>" does not exist
+    When I attempt to add Education using "<dataKey>"
+    Then the Education validation message should be displayed
+    And no Education record should be created
+
+Examples:
+    | dataKey               |
+    | missingUniversity     |
+    | missingCountry        |
+    | missingTitle          |
+    | missingDegree         |
+    | missingGraduationYear |

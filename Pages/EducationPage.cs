@@ -32,18 +32,7 @@ namespace qa_dotnet_cucumber.Pages
 
         private readonly By UpdateButton = By.XPath("//input[@value='Update']");
 
-        /* private By GetEducationRowLocator(string country,string university,string title,string degree,string graduationYear)
-         {
-             return By.XPath(
-                 $"//tbody/tr[" +
-                 $"td[1][normalize-space()='{country}'] and " +
-                 $"td[2][normalize-space()='{university}'] and " +
-                 $"td[3][normalize-space()='{title}'] and " +
-                 $"td[4][normalize-space()='{degree}'] and " +
-                 $"td[5][normalize-space()='{graduationYear}']]");
-         }*/
-
-        private string GetEducationRowXPath(string country, string university, string title, string degree,string graduationYear)
+       private string GetEducationRowXPath(string country, string university, string title, string degree,string graduationYear)
         {
             return
                 $"//tbody/tr[" +
@@ -88,6 +77,12 @@ namespace qa_dotnet_cucumber.Pages
                     graduationYear)
                 + "//i[contains(@class,'remove')]");
         }
+
+        private readonly By EducationRows =
+            By.XPath("//div[@data-tab='third' and contains(@class,'active')]//tbody/tr");
+
+        private readonly By EducationValidationMessage =
+            By.XPath("//*[normalize-space()='Please enter all the fields']");
 
 
         public EducationPage(IWebDriver driver)
@@ -202,6 +197,7 @@ namespace qa_dotnet_cucumber.Pages
         public void AddEducation(string university, string country, string title,string degree,string graduationYear)
         {
             Console.WriteLine("Add Education Full method");
+
             ClickAddNewButton();
 
             EnterUniversity(university);
@@ -267,6 +263,59 @@ namespace qa_dotnet_cucumber.Pages
             ClickCancelButton();
         }
 
+        public void AttemptToAddEducation(string university, string country, string title, string degree, string graduationYear)
+        {
+            ClickAddNewButton();
+
+            if (!string.IsNullOrEmpty(university))
+            {
+                EnterUniversity(university);
+            }
+
+            if (!string.IsNullOrEmpty(country))
+            {
+                SelectCountry(country);
+            }
+
+            if (!string.IsNullOrEmpty(title))
+            {
+                SelectTitle(title);
+            }
+
+            if (!string.IsNullOrEmpty(degree))
+            {
+                EnterDegree(degree);
+            }
+
+            if (!string.IsNullOrEmpty(graduationYear))
+            {
+                SelectGraduationYear(graduationYear);
+            }
+
+            ClickAddButton();
+
+        }
+
+        public int GetEducationTotalRowCount()
+        {
+            return _driver.FindElements(EducationRows).Count;
+        }
+
+        public bool IsEducationValidationMessageDisplayed()
+        {
+            try
+            {
+                var message = _wait.Until(
+                    ExpectedConditions.ElementIsVisible(
+                        EducationValidationMessage));
+
+                return message.Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
 
 
         public bool IsEducationDisplayed(string country, string university,string title,string degree,string graduationYear)
