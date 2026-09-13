@@ -80,5 +80,75 @@ namespace qa_dotnet_cucumber.Steps
                 Is.True,
                 $"Certification '{certification.Certificate}' should be displayed.");
         }
+
+        [Given("Certification from \"(.*)\" exists")]
+        public void GivenCertificationFromExists(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            _certificationPage.DeleteCertificationIfExists(
+                certification.Certificate,
+                certification.CertifiedFrom,
+                certification.Year);
+
+            _certificationPage.AddCertification(
+                certification.Certificate,
+                certification.CertifiedFrom,
+                certification.Year);
+
+            _testDataContext.CreatedCertifications.Add(certification);
+
+            bool isDisplayed =
+                _certificationPage.IsCertificationDisplayed(
+                    certification.Certificate,
+                    certification.CertifiedFrom,
+                    certification.Year);
+
+            Assert.That(
+                isDisplayed,
+                Is.True,
+                $"Certification '{certification.Certificate}' should exist before the test.");
+        }
+
+
+        [When("I update Certification from \"(.*)\" using \"(.*)\"")]
+        public void WhenIUpdateCertificationFromUsing(string existingDataKey, string updatedDataKey)
+        {
+            var existingCertification =
+                JsonDataReader.GetCertificationData(existingDataKey);
+
+            var updatedCertification =
+                JsonDataReader.GetCertificationData(updatedDataKey);
+
+            _certificationPage.UpdateCertification(
+                existingCertification.Certificate,
+                existingCertification.CertifiedFrom,
+                existingCertification.Year,
+
+                updatedCertification.Certificate,
+                updatedCertification.CertifiedFrom,
+                updatedCertification.Year);
+
+            _testDataContext.CreatedCertifications.Add(updatedCertification);
+        }
+
+        [Then("the Certification from \"(.*)\" should not be displayed")]
+        public void ThenTheCertificationFromShouldNotBeDisplayed(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            bool isRemoved =
+                _certificationPage.IsCertificationRemoved(
+                    certification.Certificate,
+                    certification.CertifiedFrom,
+                    certification.Year);
+
+            Assert.That(
+                isRemoved,
+                Is.True,
+                $"Certification '{certification.Certificate}' should not be displayed.");
+        }
     }
 }

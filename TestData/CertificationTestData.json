@@ -3,5 +3,18 @@
     "certificate": "ISTQB Foundation",
     "certifiedFrom": "ISTQB",
     "year": "2025"
+  },
+
+  
+  "validEditExisting": {
+    "certificate": "Auto ISTQB Foundation",
+    "certifiedFrom": "ISTQB",
+    "year": "2020"
+  },
+
+  "validEditUpdated": {
+    "certificate": "Auto ISTQB Advanced",
+    "certifiedFrom": "ISTQB Global",
+    "year": "2024"
   }
 }

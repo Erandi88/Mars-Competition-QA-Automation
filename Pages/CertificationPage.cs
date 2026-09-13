@@ -31,6 +31,9 @@ namespace qa_dotnet_cucumber.Pages
         private readonly By CancelButton =
             By.XPath("//input[@value='Cancel']");
 
+        private readonly By UpdateButton =
+            By.XPath("//input[@value='Update']");
+
         private string GetCertificationRowXPath(string certificate,string certifiedFrom,string year)
         {
             return
@@ -56,6 +59,17 @@ namespace qa_dotnet_cucumber.Pages
                     certifiedFrom,
                     year)
                 + "//i[contains(@class,'remove')]");
+        }
+
+        //edit button locator
+        private By GetCertificationEditButtonLocator(string certificate, string certifiedFrom, string year)
+        {
+            return By.XPath(
+                GetCertificationRowXPath(
+                    certificate,
+                    certifiedFrom,
+                    year)
+                + "//i[contains(@class,'write')]");
         }
 
         public CertificationPage(IWebDriver driver)
@@ -176,6 +190,40 @@ namespace qa_dotnet_cucumber.Pages
             {
                 return false;
             }
+        }
+
+        //click edit btn
+        public void ClickEditCertification(string certificate,string certifiedFrom,string year)
+        {
+            var editButton =
+                _wait.Until(
+                    ExpectedConditions.ElementToBeClickable(
+                        GetCertificationEditButtonLocator(certificate,certifiedFrom,year)));
+
+            editButton.Click();
+        }
+
+        //click update btn
+        public void ClickUpdateButton()
+        {
+            var updateButton =
+                _wait.Until(
+                    ExpectedConditions.ElementToBeClickable(UpdateButton));
+
+            updateButton.Click();
+        }
+
+        //edit method
+        public void UpdateCertification(string currentCertificate, string currentCertifiedFrom, string currentYear,
+                string updatedCertificate, string updatedCertifiedFrom, string updatedYear)
+        {
+            ClickEditCertification(currentCertificate, currentCertifiedFrom, currentYear);
+
+            EnterCertificate(updatedCertificate);
+            EnterCertifiedFrom(updatedCertifiedFrom);
+            SelectYear(updatedYear);
+
+            ClickUpdateButton();
         }
     }
 }
