@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using qa_dotnet_cucumber.Models;
 
 namespace qa_dotnet_cucumber.Helpers
 {
@@ -44,6 +45,43 @@ namespace qa_dotnet_cucumber.Helpers
             {
                 throw new KeyNotFoundException(
                     $"Education test data key '{dataKey}' was not found.");
+            }
+
+            return data;
+        }
+
+        public static CertificationData GetCertificationData(string dataKey)
+        {
+            string filePath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "TestData",
+                "CertificationTestData.json");
+
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException(
+                    $"Certification test data file was not found: {filePath}");
+            }
+
+            string json = File.ReadAllText(filePath);
+
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            var certificationData =
+                JsonSerializer.Deserialize<Dictionary<string, CertificationData>>(
+                    json,
+                    options);
+
+            if (certificationData == null ||
+                !certificationData.TryGetValue(
+                    dataKey,
+                    out CertificationData? data))
+            {
+                throw new KeyNotFoundException(
+                    $"Certification test data key '{dataKey}' was not found.");
             }
 
             return data;

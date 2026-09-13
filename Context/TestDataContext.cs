@@ -6,6 +6,8 @@ namespace qa_dotnet_cucumber.Context
     {
         public List<EducationData> CreatedEducations { get; } = new();
 
+        public List<CertificationData> CreatedCertifications { get; } = new();
+
         //how many eduaction rows exist(remember)
         public int EducationRowCountBeforeAction { get; set; }
     }

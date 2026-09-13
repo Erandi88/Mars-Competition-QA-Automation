@@ -50,7 +50,6 @@ Scenario: Add an exact duplicate Education
     Then the duplicate Education message should be displayed
     And only one Education from "duplicateAdd" should be displayed
 
-
 @education @negative @invalidinput
 Scenario Outline: Add Education with missing required field
     Given Education from "<dataKey>" does not exist

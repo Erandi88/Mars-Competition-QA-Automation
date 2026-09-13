@@ -1,0 +1,84 @@
+﻿using NUnit.Framework;
+using Reqnroll;
+using qa_dotnet_cucumber.Helpers;
+using qa_dotnet_cucumber.Pages;
+using qa_dotnet_cucumber.Context;
+
+namespace qa_dotnet_cucumber.Steps
+{
+    [Binding]
+    public class CertificationSteps
+    {
+        private readonly CertificationPage _certificationPage;
+        private readonly TestDataContext _testDataContext;
+
+        public CertificationSteps(
+            CertificationPage certificationPage,
+            TestDataContext testDataContext)
+        {
+            _certificationPage = certificationPage;
+            _testDataContext = testDataContext;
+        }
+
+        [Given("I am on the Certification tab")]
+        public void GivenIAmOnTheCertificationTab()
+        {
+            _certificationPage.ClickCertificationTab();
+        }
+
+        [Given("Certification from \"(.*)\" does not exist")]
+        public void GivenCertificationFromDoesNotExist(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            _certificationPage.DeleteCertificationIfExists(
+                certification.Certificate,
+                certification.CertifiedFrom,
+                certification.Year);
+
+            bool isRemoved =
+                _certificationPage.IsCertificationRemoved(
+                    certification.Certificate,
+                    certification.CertifiedFrom,
+                    certification.Year);
+
+            Assert.That(
+                isRemoved,
+                Is.True,
+                $"Leftover Certification '{certification.Certificate}' should not exist before the test.");
+        }
+
+        [When("I add Certification using \"(.*)\"")]
+        public void WhenIAddCertificationUsing(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            _certificationPage.AddCertification(
+                certification.Certificate,
+                certification.CertifiedFrom,
+                certification.Year);
+
+            _testDataContext.CreatedCertifications.Add(certification);
+        }
+
+        [Then("the Certification from \"(.*)\" should be displayed")]
+        public void ThenTheCertificationFromShouldBeDisplayed(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            bool isDisplayed =
+                _certificationPage.IsCertificationDisplayed(
+                    certification.Certificate,
+                    certification.CertifiedFrom,
+                    certification.Year);
+
+            Assert.That(
+                isDisplayed,
+                Is.True,
+                $"Certification '{certification.Certificate}' should be displayed.");
+        }
+    }
+}

@@ -88,6 +88,7 @@ namespace qa_dotnet_cucumber.Hooks
             _objectContainer.RegisterInstanceAs(new LoginPage(driver));
             _objectContainer.RegisterInstanceAs(new EducationPage(driver));
             _objectContainer.RegisterInstanceAs(new TestDataContext());
+            _objectContainer.RegisterInstanceAs(new CertificationPage(driver));
 
             lock (_reportLock)
             {
@@ -133,6 +134,16 @@ namespace qa_dotnet_cucumber.Hooks
                 var educationPage =
                     _objectContainer.Resolve<EducationPage>();
 
+                var certificationPage =
+                    _objectContainer.Resolve<CertificationPage>();
+
+
+                // -------------------------
+                // Education cleanup
+                // -------------------------
+
+                //educationPage.CancelEducationEditIfOpen();
+
                 foreach (var education in testDataContext.CreatedEducations)
                 {
                     educationPage.DeleteEducationIfExists(
@@ -142,7 +153,7 @@ namespace qa_dotnet_cucumber.Hooks
                         education.Degree,
                         education.GraduationYear);
 
-                    bool isRemoved =
+                    bool isEducationRemoved =
                         educationPage.IsEducationRemoved(
                             education.Country,
                             education.University,
@@ -150,15 +161,45 @@ namespace qa_dotnet_cucumber.Hooks
                             education.Degree,
                             education.GraduationYear);
 
-                    if (isRemoved)
+                    if (isEducationRemoved)
                     {
                         Console.WriteLine(
-                            $"Cleanup successful: {education.University}");
+                            $"Education cleanup successful: {education.University}");
                     }
                     else
                     {
                         Console.WriteLine(
-                            $"Cleanup warning: Could not remove {education.University}");
+                            $"Education cleanup warning: Could not remove {education.University}");
+                    }
+                }
+
+
+                // -------------------------
+                // Certification cleanup
+                // -------------------------
+
+                foreach (var certification in testDataContext.CreatedCertifications)
+                {
+                    certificationPage.DeleteCertificationIfExists(
+                        certification.Certificate,
+                        certification.CertifiedFrom,
+                        certification.Year);
+
+                    bool isCertificationRemoved =
+                        certificationPage.IsCertificationRemoved(
+                            certification.Certificate,
+                            certification.CertifiedFrom,
+                            certification.Year);
+
+                    if (isCertificationRemoved)
+                    {
+                        Console.WriteLine(
+                            $"Certification cleanup successful: {certification.Certificate}");
+                    }
+                    else
+                    {
+                        Console.WriteLine(
+                            $"Certification cleanup warning: Could not remove {certification.Certificate}");
                     }
                 }
             }
@@ -166,8 +207,7 @@ namespace qa_dotnet_cucumber.Hooks
             {
                 driver?.Quit();
 
-                Console.WriteLine(
-                    $"Finished scenario on Thread {Thread.CurrentThread.ManagedThreadId} at {DateTime.Now}");
+                Console.WriteLine("Browser closed after scenario.");
             }
         }
 

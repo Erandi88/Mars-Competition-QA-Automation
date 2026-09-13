@@ -1,0 +1,181 @@
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
+
+namespace qa_dotnet_cucumber.Pages
+{
+    public class CertificationPage
+    {
+        private readonly IWebDriver _driver;
+        private readonly WebDriverWait _wait;
+
+        private readonly By CertificationTab =
+            By.XPath("//a[normalize-space()='Certifications']");
+
+        private readonly By AddNewButton = By.XPath(
+        "//div[contains(@class,'active')]" +
+        "//div[contains(@class,'ui teal button') and normalize-space()='Add New']");
+
+        private readonly By CertificateField =
+            By.XPath("//input[@placeholder='Certificate or Award']");
+
+        private readonly By CertifiedFromField =
+            By.XPath("//input[@placeholder='Certified From (e.g. Adobe)']");
+
+        private readonly By YearDropdown =
+            By.XPath("//select[@name='certificationYear']");
+
+        private readonly By AddButton =
+            By.XPath("//input[@value='Add']");
+
+        private readonly By CancelButton =
+            By.XPath("//input[@value='Cancel']");
+
+        private string GetCertificationRowXPath(string certificate,string certifiedFrom,string year)
+        {
+            return
+                $"//tbody/tr[" +
+                $"td[1][normalize-space()='{certificate}'] and " +
+                $"td[2][normalize-space()='{certifiedFrom}'] and " +
+                $"td[3][normalize-space()='{year}']]";
+        }
+
+        //convert GetCertificationRowXPath into a Selenium locator
+        private By GetCertificationRowLocator(string certificate,string certifiedFrom, string year)
+        {
+            return By.XPath(
+                GetCertificationRowXPath(certificate,certifiedFrom,year));
+        }
+
+        //delete btn locator
+        private By GetCertificationDeleteButtonLocator(string certificate,string certifiedFrom,string year)
+        {
+            return By.XPath(
+                GetCertificationRowXPath(
+                    certificate,
+                    certifiedFrom,
+                    year)
+                + "//i[contains(@class,'remove')]");
+        }
+
+        public CertificationPage(IWebDriver driver)
+        {
+            _driver = driver;
+
+            _wait = new WebDriverWait(
+                _driver,
+                TimeSpan.FromSeconds(30));
+        }
+
+        public void ClickCertificationTab()
+        {
+            var certificationTab =
+                _wait.Until(ExpectedConditions.ElementToBeClickable(CertificationTab));
+
+            certificationTab.Click();
+        }
+
+        public void ClickAddNewButton()
+        {
+            var addNewButton =
+                _wait.Until(ExpectedConditions.ElementToBeClickable( AddNewButton));
+
+            addNewButton.Click();
+        }
+
+        public void EnterCertificate(string certificate)
+        {
+            var certificateInput =
+                _wait.Until(ExpectedConditions.ElementIsVisible(CertificateField));
+
+            certificateInput.Clear();
+            certificateInput.SendKeys(certificate);
+        }
+
+        public void EnterCertifiedFrom(string certifiedFrom)
+        {
+            var certifiedFromInput =
+                _wait.Until( ExpectedConditions.ElementIsVisible(CertifiedFromField));
+
+            certifiedFromInput.Clear();
+            certifiedFromInput.SendKeys(certifiedFrom);
+        }
+
+        public void SelectYear(string year)
+        {
+            var yearDropdown =
+                _wait.Until(ExpectedConditions.ElementIsVisible(YearDropdown));
+
+            var selectElement = new SelectElement(yearDropdown);
+
+            selectElement.SelectByText(year);
+        }
+
+        public void ClickAddButton()
+        {
+            var addButton =
+                _wait.Until(ExpectedConditions.ElementToBeClickable(AddButton));
+
+            addButton.Click();
+        }
+
+        public void AddCertification(string certificate, string certifiedFrom, string year)
+        {
+            ClickAddNewButton();
+
+            EnterCertificate(certificate);
+            EnterCertifiedFrom(certifiedFrom);
+            SelectYear(year);
+
+            ClickAddButton();
+        }
+
+        public bool IsCertificationDisplayed(string certificate, string certifiedFrom, string year)
+        {
+            try
+            {
+                var certificationRow =
+                    GetCertificationRowLocator(certificate, certifiedFrom, year);
+
+                return _wait.Until(
+                    ExpectedConditions.ElementIsVisible(certificationRow)).Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public void DeleteCertificationIfExists(string certificate, string certifiedFrom, string year)
+        {
+            var deleteButton =
+                GetCertificationDeleteButtonLocator( certificate, certifiedFrom, year);
+
+            var elements =
+                _driver.FindElements(deleteButton);
+
+            Console.WriteLine("Element count : " + elements.Count());
+
+            if (elements.Count > 0)
+            {
+                elements[0].Click();
+            }
+        }
+
+        public bool IsCertificationRemoved(string certificate,string certifiedFrom,string year)
+        {
+            var certificationRow =
+                GetCertificationRowLocator(certificate,certifiedFrom,year);
+
+            try
+            {
+                return _wait.Until(
+                    ExpectedConditions.InvisibilityOfElementLocated(certificationRow));
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+    }
+}
