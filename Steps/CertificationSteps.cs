@@ -170,5 +170,17 @@ namespace qa_dotnet_cucumber.Steps
                 updatedCertification.CertifiedFrom,
                 updatedCertification.Year);
         }
+
+        [When("I delete Certification from \"(.*)\"")]
+        public void WhenIDeleteCertificationFrom(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            _certificationPage.DeleteCertification(
+                certification.Certificate,
+                certification.CertifiedFrom,
+                certification.Year);
+        }
     }
 }

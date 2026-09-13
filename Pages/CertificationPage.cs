@@ -247,5 +247,16 @@ namespace qa_dotnet_cucumber.Pages
 
             ClickCancelButton();
         }
+
+        //delete method
+        public void DeleteCertification(string certificate, string certifiedFrom, string year)
+        {
+            var deleteButton =
+                _wait.Until(
+                    ExpectedConditions.ElementToBeClickable(
+                        GetCertificationDeleteButtonLocator(certificate, certifiedFrom, year)));
+
+            deleteButton.Click();
+        }
     }
 }

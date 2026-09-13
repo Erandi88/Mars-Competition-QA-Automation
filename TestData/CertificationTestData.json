@@ -29,7 +29,12 @@
     "certificate": "Auto Certification Changed",
     "certifiedFrom": "Microsoft",
     "year": "2024"
+  },
+
+
+  "validDelete": {
+    "certificate": "Auto Delete Certification",
+    "certifiedFrom": "ISTQB",
+    "year": "2021"
   }
-
-
 }

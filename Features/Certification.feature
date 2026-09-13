@@ -26,3 +26,9 @@ Scenario: Cancel editing an existing Certification
     Then the Certification from "cancelEditExisting" should be displayed
     And the Certification from "cancelEditUpdated" should not be displayed
 
+@certification @positive
+Scenario: Delete an existing Certification
+    Given Certification from "validDelete" exists
+    When I delete Certification from "validDelete"
+    Then the Certification from "validDelete" should not be displayed
+
