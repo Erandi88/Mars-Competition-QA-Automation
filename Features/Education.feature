@@ -43,6 +43,13 @@ Scenario: Update Education to match another existing Education
     When I cancel the education edit
     Then the Education from "duplicateEditSource" should be displayed
 
+@education @negative @validinput
+Scenario: Add an exact duplicate Education
+    Given Education from "duplicateAdd" exists
+    When I add Education using "duplicateAdd"
+    Then the duplicate Education message should be displayed
+    And only one Education from "duplicateAdd" should be displayed
+
 
 @education @negative @invalidinput
 Scenario Outline: Add Education with missing required field

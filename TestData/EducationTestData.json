@@ -197,5 +197,13 @@
     "title": "B.A",
     "degree": "     ",
     "graduationYear": "2022"
+  },
+
+  "duplicateAdd": {
+    "country": "New Zealand",
+    "university": "Auto Duplicate University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2022"
   }
 }
