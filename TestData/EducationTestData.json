@@ -117,5 +117,13 @@
     "title": "B.Sc",
     "degree": "   ",
     "graduationYear": "2022"
+  },
+
+  "veryLongUniversity": {
+    "country": "Bolivia",
+    "university": "AutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversity",
+    "title": "PHD",
+    "degree": "Bio Chemical",
+    "graduationYear": "2008"
   }
 }

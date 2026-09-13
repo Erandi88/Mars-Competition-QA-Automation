@@ -71,3 +71,9 @@ Examples:
     | dataKey              |
     | spacesOnlyUniversity |
     | spacesOnlyDegree     |
+
+@education @boundary @destructive
+Scenario: Add Education with a very long University value
+    Given Education from "veryLongUniversity" does not exist
+    When I add Education using "veryLongUniversity"
+    Then the Education from "veryLongUniversity" should be displayed
