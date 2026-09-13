@@ -225,5 +225,27 @@ namespace qa_dotnet_cucumber.Pages
 
             ClickUpdateButton();
         }
+
+        //cancel method
+        public void ClickCancelButton()
+        {
+            var cancelButton =
+                _wait.Until(ExpectedConditions.ElementToBeClickable(CancelButton));
+
+            cancelButton.Click();
+        }
+
+        //edit and cancel
+        public void EditCertificationAndCancel(string currentCertificate, string currentCertifiedFrom,string currentYear,
+            string updatedCertificate, string updatedCertifiedFrom, string updatedYear)
+        {
+            ClickEditCertification(currentCertificate, currentCertifiedFrom, currentYear);
+
+            EnterCertificate(updatedCertificate);
+            EnterCertifiedFrom(updatedCertifiedFrom);
+            SelectYear(updatedYear);
+
+            ClickCancelButton();
+        }
     }
 }

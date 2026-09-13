@@ -18,3 +18,11 @@ Scenario: Edit an existing Certification with valid details
     Then the Certification from "validEditUpdated" should be displayed
     And the Certification from "validEditExisting" should not be displayed
 
+@certification @positive
+Scenario: Cancel editing an existing Certification
+    Given Certification from "cancelEditUpdated" does not exist
+    And Certification from "cancelEditExisting" exists
+    When I edit Certification from "cancelEditExisting" using "cancelEditUpdated" and cancel the changes
+    Then the Certification from "cancelEditExisting" should be displayed
+    And the Certification from "cancelEditUpdated" should not be displayed
+

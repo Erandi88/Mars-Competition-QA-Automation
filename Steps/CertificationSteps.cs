@@ -150,5 +150,25 @@ namespace qa_dotnet_cucumber.Steps
                 Is.True,
                 $"Certification '{certification.Certificate}' should not be displayed.");
         }
+
+
+        [When("I edit Certification from \"(.*)\" using \"(.*)\" and cancel the changes")]
+        public void WhenIEditCertificationFromUsingAndCancelTheChanges(string existingDataKey, string updatedDataKey)
+        {
+            var existingCertification =
+                JsonDataReader.GetCertificationData(existingDataKey);
+
+            var updatedCertification =
+                JsonDataReader.GetCertificationData(updatedDataKey);
+
+            _certificationPage.EditCertificationAndCancel(
+                existingCertification.Certificate,
+                existingCertification.CertifiedFrom,
+                existingCertification.Year,
+
+                updatedCertification.Certificate,
+                updatedCertification.CertifiedFrom,
+                updatedCertification.Year);
+        }
     }
 }

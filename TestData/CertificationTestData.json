@@ -5,7 +5,7 @@
     "year": "2025"
   },
 
-  
+
   "validEditExisting": {
     "certificate": "Auto ISTQB Foundation",
     "certifiedFrom": "ISTQB",
@@ -16,5 +16,20 @@
     "certificate": "Auto ISTQB Advanced",
     "certifiedFrom": "ISTQB Global",
     "year": "2024"
+  },
+
+
+  "cancelEditExisting": {
+    "certificate": "Auto Certification Original",
+    "certifiedFrom": "ISTQB",
+    "year": "2020"
+  },
+
+  "cancelEditUpdated": {
+    "certificate": "Auto Certification Changed",
+    "certifiedFrom": "Microsoft",
+    "year": "2024"
   }
+
+
 }
