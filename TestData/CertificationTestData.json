@@ -49,5 +49,30 @@
     "certificate": "Auto Target Certification",
     "certifiedFrom": "ISTQB",
     "year": "2024"
+  },
+
+
+  "missingAllFields": {
+    "certificate": "",
+    "certifiedFrom": "",
+    "year": ""
+  },
+
+  "missingYear": {
+    "certificate": "Auto Missing Year Certification",
+    "certifiedFrom": "ISTQB",
+    "year": ""
+  },
+
+  "missingCertifiedFrom": {
+    "certificate": "Auto Missing From Certification",
+    "certifiedFrom": "",
+    "year": "2022"
+  },
+
+  "missingCertificate": {
+    "certificate": "",
+    "certifiedFrom": "ISTQB",
+    "year": "2022"
   }
 }

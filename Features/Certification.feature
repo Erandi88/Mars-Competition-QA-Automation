@@ -42,5 +42,16 @@ Scenario: Update Certification to match another existing Certification
     When I cancel the certification edit
     Then the Certification from "duplicateEditSource" should be displayed
 
-   
+@certification @negative @invalidinput
+Scenario Outline: Add Certification with missing required field
+    When I attempt to add Certification using "<dataKey>"
+    Then the Certification required-fields message should be displayed
+    And no Certification record should be created
+
+Examples:
+    | dataKey                    |
+    | missingAllFields           |
+    | missingYear                |
+    | missingCertifiedFrom       |
+    | missingCertificate         |
 

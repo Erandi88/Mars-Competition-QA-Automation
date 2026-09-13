@@ -38,6 +38,10 @@ namespace qa_dotnet_cucumber.Pages
         private readonly By CertificationDuplicateMessage =
             By.XPath("//*[normalize-space()='This information is already exist.']");
 
+        //validation mes - "Please enter Certification Name, Certification From and Certification Year"
+        private readonly By CertificationRequiredFieldsMessage =By.XPath(
+            "//*[normalize-space()='Please enter Certification Name, Certification From and Certification Year']");
+
         private string GetCertificationRowXPath(string certificate,string certifiedFrom,string year)
         {
             return
@@ -75,6 +79,10 @@ namespace qa_dotnet_cucumber.Pages
                     year)
                 + "//i[contains(@class,'write')]");
         }
+
+        //get the locator for certificate table row
+        private readonly By CertificationRows =
+            By.XPath("//div[@data-tab='fourth' and contains(@class,'active')]//tbody/tr");
 
         public CertificationPage(IWebDriver driver)
         {
@@ -289,6 +297,55 @@ namespace qa_dotnet_cucumber.Pages
                     year);
 
             return _driver.FindElements(certificationRow).Count;
+        }
+
+        //get table row count
+        public int GetCertificationTotalRowCount()
+        {
+            return _driver.FindElements(CertificationRows).Count;
+        }
+
+        public void AttemptToAddCertification(string certificate, string certifiedFrom, string year)
+        {
+            ClickAddNewButton();
+
+            Console.WriteLine(string.IsNullOrEmpty(certificate));
+            Console.WriteLine(string.IsNullOrEmpty(certifiedFrom));
+            Console.WriteLine(string.IsNullOrEmpty(year));
+
+
+            if (!string.IsNullOrEmpty(certificate))
+            {
+                EnterCertificate(certificate);
+            }
+
+            if (!string.IsNullOrEmpty(certifiedFrom))
+            {
+                EnterCertifiedFrom(certifiedFrom);
+            }
+
+            if (!string.IsNullOrEmpty(year))
+            {
+                SelectYear(year);
+            }
+
+            ClickAddButton();
+        }
+
+        //Please enter Certification Name, Certification From and Certification Year
+        public bool IsCertificationRequiredFieldsMessageDisplayed()
+        {
+            try
+            {
+                var message = _wait.Until(
+                    ExpectedConditions.ElementIsVisible( CertificationRequiredFieldsMessage));
+
+                return message.Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
         }
     }
 }

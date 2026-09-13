@@ -219,5 +219,54 @@ namespace qa_dotnet_cucumber.Steps
         {
             _certificationPage.ClickCancelButton();
         }
+
+
+        [When("I attempt to add Certification using \"(.*)\"")]
+        public void WhenIAttemptToAddCertificationUsing(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            //save the table row count before the action
+            _testDataContext.CertificationRowCountBeforeAction =
+                _certificationPage.GetCertificationTotalRowCount();
+
+            _certificationPage.AttemptToAddCertification(
+                certification.Certificate,
+                certification.CertifiedFrom,
+                certification.Year);
+
+            _testDataContext.CreatedCertifications.Add(certification);
+        }
+
+        [Then("the Certification required-fields message should be displayed")]
+        public void ThenTheCertificationRequiredFieldsMessageShouldBeDisplayed()
+        {
+            bool isDisplayed =
+                _certificationPage.IsCertificationRequiredFieldsMessageDisplayed();
+
+            Assert.That(
+                isDisplayed,
+                Is.True,
+                "Expected Certification required-fields validation message to be displayed.");
+        }
+
+        [Then("no Certification record should be created")]
+        public void ThenNoCertificationRecordShouldBeCreated()
+        {
+            //after table row count
+            int rowCountAfterAction =
+                _certificationPage.GetCertificationTotalRowCount();
+
+            Console.WriteLine("Row count BEFORE : " + _testDataContext.CertificationRowCountBeforeAction);
+            Console.WriteLine("Row count AFTER : " + rowCountAfterAction);
+
+            Assert.That(
+                rowCountAfterAction,
+                Is.EqualTo(_testDataContext.CertificationRowCountBeforeAction),
+                $"Certification row count should remain " +
+                $"{_testDataContext.CertificationRowCountBeforeAction}, " +
+                $"but found {rowCountAfterAction}.");
+        }
     }
 }

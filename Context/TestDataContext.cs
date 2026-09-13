@@ -10,5 +10,7 @@ namespace qa_dotnet_cucumber.Context
 
         //how many eduaction rows exist(remember)
         public int EducationRowCountBeforeAction { get; set; }
+
+        public int CertificationRowCountBeforeAction { get; set; }
     }
 }
