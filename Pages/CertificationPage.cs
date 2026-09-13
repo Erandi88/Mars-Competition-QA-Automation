@@ -347,5 +347,79 @@ namespace qa_dotnet_cucumber.Pages
                 return false;
             }
         }
+
+        //clear certificate field 
+        public void ClearCertificate()
+        {
+            var certificateInput =
+                _wait.Until(ExpectedConditions.ElementIsVisible(CertificateField));
+
+            certificateInput.Click();
+            certificateInput.SendKeys(Keys.Control + "a");
+            certificateInput.SendKeys(Keys.Backspace);
+
+            _wait.Until(driver =>
+                string.IsNullOrEmpty(certificateInput.GetAttribute("value")));
+        }
+
+        //clear certificate from field
+        public void ClearCertifiedFrom()
+        {
+            var certifiedFromInput =
+                _wait.Until(ExpectedConditions.ElementIsVisible(CertifiedFromField));
+
+            certifiedFromInput.Click();
+            certifiedFromInput.SendKeys(Keys.Control + "a");
+            certifiedFromInput.SendKeys(Keys.Backspace);
+
+            _wait.Until(driver =>
+                string.IsNullOrEmpty(certifiedFromInput.GetAttribute("value")));
+        }
+
+        //set the default value for dropdown
+        public void SelectDefaultYear()
+        {
+            var yearDropdown =
+                _wait.Until(ExpectedConditions.ElementIsVisible(YearDropdown));
+
+            var selectElement = new SelectElement(yearDropdown);
+
+            selectElement.SelectByIndex(0);
+        }
+
+        public void AttemptToUpdateCertification(string currentCertificate, string currentCertifiedFrom, string currentYear,
+                string updatedCertificate, string updatedCertifiedFrom, string updatedYear)
+        {
+            ClickEditCertification(currentCertificate, currentCertifiedFrom, currentYear);
+
+            if (string.IsNullOrEmpty(updatedCertificate))
+            {
+                ClearCertificate();
+            }
+            else
+            {
+                EnterCertificate(updatedCertificate);
+            }
+
+            if (string.IsNullOrEmpty(updatedCertifiedFrom))
+            {
+                ClearCertifiedFrom();
+            }
+            else
+            {
+                EnterCertifiedFrom(updatedCertifiedFrom);
+            }
+
+            if (string.IsNullOrEmpty(updatedYear))
+            {
+                SelectDefaultYear();
+            }
+            else
+            {
+                SelectYear(updatedYear);
+            }
+
+            ClickUpdateButton();
+        }
     }
 }

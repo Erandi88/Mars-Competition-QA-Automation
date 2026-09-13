@@ -268,5 +268,25 @@ namespace qa_dotnet_cucumber.Steps
                 $"{_testDataContext.CertificationRowCountBeforeAction}, " +
                 $"but found {rowCountAfterAction}.");
         }
+
+
+        [When("I attempt to update Certification from \"(.*)\" using \"(.*)\"")]
+        public void WhenIAttemptToUpdateCertificationFromUsing(string existingDataKey, string updatedDataKey)
+        {
+            var existingCertification =
+                JsonDataReader.GetCertificationData(existingDataKey);
+
+            var updatedCertification =
+                JsonDataReader.GetCertificationData(updatedDataKey);
+
+            _certificationPage.AttemptToUpdateCertification(
+                existingCertification.Certificate,
+                existingCertification.CertifiedFrom,
+                existingCertification.Year,
+
+                updatedCertification.Certificate,
+                updatedCertification.CertifiedFrom,
+                updatedCertification.Year);
+        }
     }
 }

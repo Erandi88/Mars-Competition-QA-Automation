@@ -74,5 +74,36 @@
     "certificate": "",
     "certifiedFrom": "ISTQB",
     "year": "2022"
+  },
+
+
+  "updateMissingFieldSource": {
+    "certificate": "Auto Update Certification Source",
+    "certifiedFrom": "ISTQB",
+    "year": "2020"
+  },
+
+  "updateMissingAllFields": {
+    "certificate": "",
+    "certifiedFrom": "",
+    "year": ""
+  },
+
+  "updateMissingCertificate": {
+    "certificate": "",
+    "certifiedFrom": "Microsoft",
+    "year": "2023"
+  },
+
+  "updateMissingCertifiedFrom": {
+    "certificate": "Auto Missing From Update",
+    "certifiedFrom": "",
+    "year": "2023"
+  },
+
+  "updateMissingYear": {
+    "certificate": "Auto Missing Year Update",
+    "certifiedFrom": "Microsoft",
+    "year": ""
   }
 }

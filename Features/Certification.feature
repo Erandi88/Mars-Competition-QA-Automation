@@ -55,3 +55,19 @@ Examples:
     | missingCertifiedFrom       |
     | missingCertificate         |
 
+
+@certification @negative @invalidinput
+Scenario Outline: Update Certification with missing required field
+    Given Certification from "updateMissingFieldSource" exists
+    When I attempt to update Certification from "updateMissingFieldSource" using "<dataKey>"
+    Then the Certification required-fields message should be displayed
+    When I cancel the certification edit
+    Then the Certification from "updateMissingFieldSource" should be displayed
+
+Examples:
+    | dataKey                    |
+    | updateMissingAllFields     |
+    | updateMissingCertificate   |
+    | updateMissingCertifiedFrom |
+    | updateMissingYear          |
+
