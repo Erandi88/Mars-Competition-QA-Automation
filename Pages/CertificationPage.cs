@@ -34,6 +34,10 @@ namespace qa_dotnet_cucumber.Pages
         private readonly By UpdateButton =
             By.XPath("//input[@value='Update']");
 
+        //error msg  - "This information is already exist."
+        private readonly By CertificationDuplicateMessage =
+            By.XPath("//*[normalize-space()='This information is already exist.']");
+
         private string GetCertificationRowXPath(string certificate,string certifiedFrom,string year)
         {
             return
@@ -257,6 +261,34 @@ namespace qa_dotnet_cucumber.Pages
                         GetCertificationDeleteButtonLocator(certificate, certifiedFrom, year)));
 
             deleteButton.Click();
+        }
+
+        //check if the information already exist is displayed
+        public bool IsCertificationDuplicateMessageDisplayed()
+        {
+            try
+            {
+                var message = _wait.Until(
+                    ExpectedConditions.ElementIsVisible(CertificationDuplicateMessage));
+
+                return message.Displayed;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        //get certificate row count
+        public int GetCertificationRowCount(string certificate, string certifiedFrom, string year)
+        {
+            var certificationRow =
+                GetCertificationRowLocator(
+                    certificate,
+                    certifiedFrom,
+                    year);
+
+            return _driver.FindElements(certificationRow).Count;
         }
     }
 }

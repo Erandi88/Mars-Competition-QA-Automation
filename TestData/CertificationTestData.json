@@ -36,5 +36,18 @@
     "certificate": "Auto Delete Certification",
     "certifiedFrom": "ISTQB",
     "year": "2021"
+  },
+
+
+  "duplicateEditSource": {
+    "certificate": "Auto Source Certification",
+    "certifiedFrom": "Microsoft",
+    "year": "2021"
+  },
+
+  "duplicateEditTarget": {
+    "certificate": "Auto Target Certification",
+    "certifiedFrom": "ISTQB",
+    "year": "2024"
   }
 }

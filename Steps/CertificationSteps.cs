@@ -182,5 +182,42 @@ namespace qa_dotnet_cucumber.Steps
                 certification.CertifiedFrom,
                 certification.Year);
         }
+
+
+        [Then("the duplicate Certification message should be displayed")]
+        public void ThenTheDuplicateCertificationMessageShouldBeDisplayed()
+        {
+            bool isDisplayed =
+                _certificationPage.IsCertificationDuplicateMessageDisplayed();
+
+            Assert.That(
+                isDisplayed,
+                Is.True,
+                "Expected duplicate Certification message 'This information is already exist.' to be displayed.");
+        }
+
+        [Then("only one Certification from \"(.*)\" should be displayed")]
+        public void ThenOnlyOneCertificationFromShouldBeDisplayed(string dataKey)
+        {
+            var certification =
+                JsonDataReader.GetCertificationData(dataKey);
+
+            int rowCount =
+                _certificationPage.GetCertificationRowCount(
+                    certification.Certificate,
+                    certification.CertifiedFrom,
+                    certification.Year);
+
+            Assert.That(
+                rowCount,
+                Is.EqualTo(1),
+                $"Expected only one Certification '{certification.Certificate}', but found {rowCount}.");
+        }
+
+        [When("I cancel the certification edit")]
+        public void WhenICancelTheCertificationEdit()
+        {
+            _certificationPage.ClickCancelButton();
+        }
     }
 }

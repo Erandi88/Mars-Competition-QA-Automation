@@ -32,3 +32,15 @@ Scenario: Delete an existing Certification
     When I delete Certification from "validDelete"
     Then the Certification from "validDelete" should not be displayed
 
+@certification @negative @validinput
+Scenario: Update Certification to match another existing Certification
+    Given Certification from "duplicateEditSource" exists
+    And Certification from "duplicateEditTarget" exists
+    When I update Certification from "duplicateEditSource" using "duplicateEditTarget"
+    Then the duplicate Certification message should be displayed
+    And only one Certification from "duplicateEditTarget" should be displayed
+    When I cancel the certification edit
+    Then the Certification from "duplicateEditSource" should be displayed
+
+   
+
