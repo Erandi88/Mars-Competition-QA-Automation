@@ -280,6 +280,32 @@ namespace qa_dotnet_cucumber.Steps
         }
 
 
+        [When("I attempt to update Education from \"(.*)\" using \"(.*)\"")]
+        public void WhenIAttemptToUpdateEducationFromUsing(string existingDataKey, string updatedDataKey)
+        {
+            var existingEducation =
+                JsonDataReader.GetEducationData(existingDataKey);
+
+            var updatedEducation =
+                JsonDataReader.GetEducationData(updatedDataKey);
+
+            _educationPage.AttemptToUpdateEducation(
+                existingEducation.Country,
+                existingEducation.University,
+                existingEducation.Title,
+                existingEducation.Degree,
+                existingEducation.GraduationYear,
+
+                updatedEducation.University,
+                updatedEducation.Country,
+                updatedEducation.Title,
+                updatedEducation.Degree,
+                updatedEducation.GraduationYear);
+        }
+
+
+    
+
 
 
     }

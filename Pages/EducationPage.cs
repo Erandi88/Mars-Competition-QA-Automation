@@ -1,4 +1,5 @@
 ﻿using AventStack.ExtentReports;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
@@ -415,6 +416,125 @@ namespace qa_dotnet_cucumber.Pages
                 graduationYear);
 
             return _driver.FindElements(educationRow).Count;
+        }
+
+
+        public void ClearUniversity()
+        {
+            //Find University field
+            var universityInput =
+                _wait.Until(ExpectedConditions.ElementIsVisible(UniversityField));
+
+            //Click inside it
+            universityInput.Click();
+
+            //Select all existing text
+            universityInput.SendKeys(Keys.Control + "a");
+
+            //Delete selected text
+            universityInput.SendKeys(Keys.Backspace);
+
+            //Wait until the field value is actually empty
+            _wait.Until(driver =>
+                string.IsNullOrEmpty(universityInput.GetAttribute("value"))
+            );
+        }
+
+       /* public string GetUniversityValue()
+        {
+            var universityInput =
+                _wait.Until(ExpectedConditions.ElementIsVisible(UniversityField));
+
+            return universityInput.GetAttribute("value") ?? "";
+        }*/
+
+        public void ClearDegree()
+        {
+            var degreeInput =
+                _wait.Until(ExpectedConditions.ElementIsVisible(DegreeField));
+
+            degreeInput.Click();
+            degreeInput.SendKeys(Keys.Control + "a");
+            degreeInput.SendKeys(Keys.Backspace);
+
+            _wait.Until(driver =>
+                string.IsNullOrEmpty(degreeInput.GetAttribute("value"))
+            );
+        }
+
+        private void SelectDefaultOption(By dropdownLocator)
+        {
+            var dropdownElement =
+                _wait.Until(ExpectedConditions.ElementIsVisible(dropdownLocator));
+
+            var selectElement = new SelectElement(dropdownElement);
+
+            selectElement.SelectByIndex(0);
+        }
+
+        public void AttemptToUpdateEducation(
+    string currentCountry,
+    string currentUniversity,
+    string currentTitle,
+    string currentDegree,
+    string currentGraduationYear,
+    string updatedUniversity,
+    string updatedCountry,
+    string updatedTitle,
+    string updatedDegree,
+    string updatedGraduationYear)
+
+        {
+            ClickEditEducation(currentCountry, currentUniversity, currentTitle, currentDegree, currentGraduationYear);
+
+            if (string.IsNullOrEmpty(updatedUniversity))
+            {
+                ClearUniversity();
+            }
+            else
+            {
+                EnterUniversity(updatedUniversity);
+            }
+
+            if (string.IsNullOrEmpty(updatedCountry))
+            {
+                SelectDefaultOption(CountryDropdown);
+            }
+            else
+            {
+                SelectCountry(updatedCountry);
+            }
+
+            if (string.IsNullOrEmpty(updatedTitle))
+            {
+                SelectDefaultOption(TitleDropdown);
+            }
+            else
+            {
+                SelectTitle(updatedTitle);
+            }
+
+            if (string.IsNullOrEmpty(updatedDegree))
+            {
+                ClearDegree();
+            }
+            else
+            {
+                EnterDegree(updatedDegree);
+            }
+
+            if (string.IsNullOrEmpty(updatedGraduationYear))
+            {
+                SelectDefaultOption(GraduationYearDropdown);
+            }
+            else
+            {
+                SelectGraduationYear(updatedGraduationYear);
+            }
+
+            //Console.WriteLine( $"University value before Update: '{GetUniversityValue()}'");
+
+            ClickUpdateButton();
         }
     }
 }

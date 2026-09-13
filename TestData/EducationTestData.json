@@ -125,5 +125,77 @@
     "title": "PHD",
     "degree": "Bio Chemical",
     "graduationYear": "2008"
+  },
+
+  "updateMissingFieldSource": {
+    "country": "New Zealand",
+    "university": "Auto Update Source University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "updateMissingUniversity": {
+    "country": "Australia",
+    "university": "",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingCountry": {
+    "country": "",
+    "university": "Auto Missing Country Update",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingTitle": {
+    "country": "Australia",
+    "university": "Auto Missing Title Update",
+    "title": "",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingDegree": {
+    "country": "Australia",
+    "university": "Auto Missing Degree Update",
+    "title": "B.A",
+    "degree": "",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingGraduationYear": {
+    "country": "Australia",
+    "university": "Auto Missing Year Update",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": ""
+  },
+
+  "updateSpacesSource": {
+    "country": "New Zealand",
+    "university": "Auto Spaces Update Source",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "updateSpacesOnlyUniversity": {
+    "country": "Australia",
+    "university": "     ",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateSpacesOnlyDegree": {
+    "country": "Australia",
+    "university": "Auto Spaces Degree Update",
+    "title": "B.A",
+    "degree": "     ",
+    "graduationYear": "2022"
   }
 }

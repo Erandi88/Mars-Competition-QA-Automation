@@ -72,6 +72,37 @@ Examples:
     | spacesOnlyUniversity |
     | spacesOnlyDegree     |
 
+
+@education @negative @invalidinput
+Scenario Outline: Update Education with missing required field
+    Given Education from "updateMissingFieldSource" exists
+    When I attempt to update Education from "updateMissingFieldSource" using "<dataKey>"
+    Then the Education validation message should be displayed
+    When I cancel the education edit
+    Then the Education from "updateMissingFieldSource" should be displayed
+
+Examples:
+    | dataKey                     |
+    | updateMissingUniversity     |
+    | updateMissingCountry        |
+    | updateMissingTitle          |
+    | updateMissingDegree         |
+    | updateMissingGraduationYear |
+
+
+@education @negative @invalidinput
+Scenario Outline: Update Education with spaces-only text field
+    Given Education from "updateSpacesSource" exists
+    When I attempt to update Education from "updateSpacesSource" using "<dataKey>"
+    Then the invalid Education message should be displayed
+    When I cancel the education edit
+    Then the Education from "updateSpacesSource" should be displayed
+
+Examples:
+    | dataKey                   |
+    | updateSpacesOnlyUniversity |
+    | updateSpacesOnlyDegree     |
+
 @education @boundary @destructive
 Scenario: Add Education with a very long University value
     Given Education from "veryLongUniversity" does not exist
