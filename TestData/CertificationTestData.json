@@ -105,5 +105,12 @@
     "certificate": "Auto Missing Year Update",
     "certifiedFrom": "Microsoft",
     "year": ""
+  },
+
+
+  "duplicateAdd": {
+    "certificate": "Auto Duplicate Certification",
+    "certifiedFrom": "ISTQB",
+    "year": "2024"
   }
 }

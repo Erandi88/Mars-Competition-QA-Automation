@@ -42,6 +42,13 @@ Scenario: Update Certification to match another existing Certification
     When I cancel the certification edit
     Then the Certification from "duplicateEditSource" should be displayed
 
+@certification @negative @validinput
+Scenario: Add an exact duplicate Certification
+    Given Certification from "duplicateAdd" exists
+    When I add Certification using "duplicateAdd"
+    Then the duplicate Certification message should be displayed
+    And only one Certification from "duplicateAdd" should be displayed
+
 @certification @negative @invalidinput
 Scenario Outline: Add Certification with missing required field
     When I attempt to add Certification using "<dataKey>"
@@ -70,4 +77,6 @@ Examples:
     | updateMissingCertificate   |
     | updateMissingCertifiedFrom |
     | updateMissingYear          |
+
+
 
