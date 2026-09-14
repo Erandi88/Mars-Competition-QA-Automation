@@ -61,4 +61,12 @@
     <Using Include="NUnit.Framework" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestCases\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\HP\Desktop\Completion Task\Task 1\Mars_Competition_Education_Certification_TestCases.xlsx" Link="TestCases\Mars_Competition_Education_Certification_TestCases.xlsx" />
+  </ItemGroup>
+
 </Project>
