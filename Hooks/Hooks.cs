@@ -1,15 +1,17 @@
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using Reqnroll;
-using Reqnroll.BoDi;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using qa_dotnet_cucumber.Config;
+using qa_dotnet_cucumber.Context;
+using qa_dotnet_cucumber.Pages;
+using Reqnroll;
+using Reqnroll.BoDi;
 using System.IO;
 using System.Text.Json;
-using qa_dotnet_cucumber.Config;
-using qa_dotnet_cucumber.Pages;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
+
 namespace qa_dotnet_cucumber.Hooks
 {
     [Binding]
@@ -32,13 +34,27 @@ namespace qa_dotnet_cucumber.Hooks
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
+            
             string currentDir = Directory.GetCurrentDirectory();
-            string settingsPath = Path.Combine(currentDir, "settings.json");
+
+            string localSettingsPath = Path.Combine(currentDir, "settings.local.json");
+            string defaultSettingsPath = Path.Combine(currentDir, "settings.json");
+
+            string settingsPath = File.Exists(localSettingsPath)
+                ? localSettingsPath
+                : defaultSettingsPath;
+
             string json = File.ReadAllText(settingsPath);
-            _settings = JsonSerializer.Deserialize<TestSettings>(json);
+
+            _settings = JsonSerializer.Deserialize<TestSettings>(json)
+                ?? throw new InvalidOperationException(
+                    $"Unable to load settings from {settingsPath}");
+
+            Console.WriteLine($"Using settings file: {Path.GetFileName(settingsPath)}");
 
             // Get project root by navigating up from bin/Debug/net8.0
-            string projectRoot = Path.GetFullPath(Path.Combine(currentDir, "..", ".."));
+            //string projectRoot = Path.GetFullPath(Path.Combine(currentDir, "..", ".."));
+            string projectRoot = Path.GetFullPath(Path.Combine(currentDir, "..", "..", ".."));
             string reportFileName = _settings.Report.Path.TrimStart('/'); // e.g., "TestReport.html"
             string reportPath = Path.Combine(projectRoot, reportFileName);
 
@@ -61,12 +77,16 @@ namespace qa_dotnet_cucumber.Hooks
                 chromeOptions.AddArgument("--headless");
             }
             var driver = new ChromeDriver(chromeOptions);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(_settings.Browser.TimeoutSeconds);
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(_settings.Browser.TimeoutSeconds);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.Zero;
             driver.Manage().Window.Maximize();
 
             _objectContainer.RegisterInstanceAs<IWebDriver>(driver);
             _objectContainer.RegisterInstanceAs(new NavigationHelper(driver));
             _objectContainer.RegisterInstanceAs(new LoginPage(driver));
+            _objectContainer.RegisterInstanceAs(new EducationPage(driver));
+            _objectContainer.RegisterInstanceAs(new TestDataContext());
+            _objectContainer.RegisterInstanceAs(new CertificationPage(driver));
 
             lock (_reportLock)
             {
@@ -103,8 +123,26 @@ namespace qa_dotnet_cucumber.Hooks
         public void AfterScenario()
         {
             var driver = _objectContainer.Resolve<IWebDriver>();
-            driver?.Quit();
-            Console.WriteLine($"Finished scenario on Thread {Thread.CurrentThread.ManagedThreadId} at {DateTime.Now}");
+
+            try
+            {
+                var testDataContext = _objectContainer.Resolve<TestDataContext>();
+
+                var educationPage = _objectContainer.Resolve<EducationPage>();
+
+                var certificationPage = _objectContainer.Resolve<CertificationPage>();
+
+                CleanupEducation(testDataContext, educationPage);
+
+                CleanupCertifications(testDataContext, certificationPage);
+            }
+            finally
+            {
+                driver.Quit();
+
+                Console.WriteLine(
+                    "Browser closed after scenario.");
+            }
         }
 
         [AfterTestRun]
@@ -114,6 +152,55 @@ namespace qa_dotnet_cucumber.Hooks
             {
                 Console.WriteLine("AfterTestRun executed - Flushing report to: " + _settings.Report.Path + " at " + DateTime.Now);
                 _extent!.Flush();
+            }
+        }
+
+        //Helper methods for clean up
+        private void CleanupEducation(TestDataContext testDataContext,EducationPage educationPage)
+        {
+            foreach (var education in testDataContext.CreatedEducations)
+            {
+                educationPage.DeleteEducationIfExists(
+                    education.Country,
+                    education.University,
+                    education.Title,
+                    education.Degree,
+                    education.GraduationYear);
+
+                bool isRemoved =
+                    educationPage.IsEducationRemoved(
+                        education.Country,
+                        education.University,
+                        education.Title,
+                        education.Degree,
+                        education.GraduationYear);
+
+                Console.WriteLine(
+                    isRemoved
+                        ? $"Education cleanup successful: {education.University}"
+                        : $"Education cleanup warning: Could not remove {education.University}");
+            }
+        }
+
+        private void CleanupCertifications(TestDataContext testDataContext, CertificationPage certificationPage)
+        {
+            foreach (var certification in testDataContext.CreatedCertifications)
+            {
+                certificationPage.DeleteCertificationIfExists(
+                    certification.Certificate,
+                    certification.CertifiedFrom,
+                    certification.Year);
+
+                bool isRemoved =
+                    certificationPage.IsCertificationRemoved(
+                        certification.Certificate,
+                        certification.CertifiedFrom,
+                        certification.Year);
+
+                Console.WriteLine(
+                    isRemoved
+                        ? $"Certification cleanup successful: {certification.Certificate}"
+                        : $"Certification cleanup warning: Could not remove {certification.Certificate}");
             }
         }
     }

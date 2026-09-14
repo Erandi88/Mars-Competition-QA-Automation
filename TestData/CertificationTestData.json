@@ -1,0 +1,116 @@
+{
+  "validAdd": {
+    "certificate": "ISTQB Foundation",
+    "certifiedFrom": "ISTQB",
+    "year": "2025"
+  },
+
+
+  "validEditExisting": {
+    "certificate": "Auto ISTQB Foundation",
+    "certifiedFrom": "ISTQB",
+    "year": "2020"
+  },
+
+  "validEditUpdated": {
+    "certificate": "Auto ISTQB Advanced",
+    "certifiedFrom": "ISTQB Global",
+    "year": "2024"
+  },
+
+
+  "cancelEditExisting": {
+    "certificate": "Auto Certification Original",
+    "certifiedFrom": "ISTQB",
+    "year": "2020"
+  },
+
+  "cancelEditUpdated": {
+    "certificate": "Auto Certification Changed",
+    "certifiedFrom": "Microsoft",
+    "year": "2024"
+  },
+
+
+  "validDelete": {
+    "certificate": "Auto Delete Certification",
+    "certifiedFrom": "ISTQB",
+    "year": "2021"
+  },
+
+
+  "duplicateEditSource": {
+    "certificate": "Auto Source Certification",
+    "certifiedFrom": "Microsoft",
+    "year": "2021"
+  },
+
+  "duplicateEditTarget": {
+    "certificate": "Auto Target Certification",
+    "certifiedFrom": "ISTQB",
+    "year": "2024"
+  },
+
+
+  "missingAllFields": {
+    "certificate": "",
+    "certifiedFrom": "",
+    "year": ""
+  },
+
+  "missingYear": {
+    "certificate": "Auto Missing Year Certification",
+    "certifiedFrom": "ISTQB",
+    "year": ""
+  },
+
+  "missingCertifiedFrom": {
+    "certificate": "Auto Missing From Certification",
+    "certifiedFrom": "",
+    "year": "2022"
+  },
+
+  "missingCertificate": {
+    "certificate": "",
+    "certifiedFrom": "ISTQB",
+    "year": "2022"
+  },
+
+
+  "updateMissingFieldSource": {
+    "certificate": "Auto Update Certification Source",
+    "certifiedFrom": "ISTQB",
+    "year": "2020"
+  },
+
+  "updateMissingAllFields": {
+    "certificate": "",
+    "certifiedFrom": "",
+    "year": ""
+  },
+
+  "updateMissingCertificate": {
+    "certificate": "",
+    "certifiedFrom": "Microsoft",
+    "year": "2023"
+  },
+
+  "updateMissingCertifiedFrom": {
+    "certificate": "Auto Missing From Update",
+    "certifiedFrom": "",
+    "year": "2023"
+  },
+
+  "updateMissingYear": {
+    "certificate": "Auto Missing Year Update",
+    "certifiedFrom": "Microsoft",
+    "year": ""
+  },
+
+
+  "duplicateAdd": {
+    "certificate": "Auto Duplicate Certification",
+    "certifiedFrom": "ISTQB",
+    "year": "2024"
+  }
+}

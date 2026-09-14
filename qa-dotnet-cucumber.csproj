@@ -24,6 +24,23 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+	<ItemGroup>
+		<None Update="settings.local.json" Condition="Exists('settings.local.json')">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="TestData\EducationTestData.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="TestData\CertificationTestData.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+    
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
@@ -42,6 +59,14 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="TestCases\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\HP\Desktop\Completion Task\Task 1\Mars_Competition_Education_Certification_TestCases.xlsx" Link="TestCases\Mars_Competition_Education_Certification_TestCases.xlsx" />
   </ItemGroup>
 
 </Project>

@@ -5,6 +5,7 @@ namespace qa_dotnet_cucumber.Config
         public BrowserSettings Browser { get; set; }
         public ReportSettings Report { get; set; }
         public EnvironmentSettings Environment { get; set; }
+        public CredentialsSettings Credentials { get; set; }
     }
 
     public class BrowserSettings
@@ -23,5 +24,11 @@ namespace qa_dotnet_cucumber.Config
     public class EnvironmentSettings
     {
         public string BaseUrl { get; set; }
+    }
+
+    public class CredentialsSettings
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

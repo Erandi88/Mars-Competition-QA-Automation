@@ -1,0 +1,209 @@
+{
+  "validAdd": {
+    "country": "New Zealand",
+    "university": "Auto University Auckland",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "validEditExisting": {
+    "country": "New Zealand",
+    "university": "Auto University Wellington",
+    "title": "B.Sc",
+    "degree": "Information Technology",
+    "graduationYear": "2019"
+  },
+
+  "validEditUpdated": {
+    "country": "New Zealand",
+    "university": "Auto University Wellington",
+    "title": "B.Sc",
+    "degree": "Software Engineering",
+    "graduationYear": "2021"
+  },
+
+  "validDelete": {
+    "country": "Australia",
+    "university": "Auto University Australia",
+    "title": "B.Sc",
+    "degree": "Teaching",
+    "graduationYear": "2025"
+  },
+
+  "cancelEditExisting": {
+    "country": "New Zealand",
+    "university": "Auto University Hamilton",
+    "title": "B.Sc",
+    "degree": "Information Technology",
+    "graduationYear": "2020"
+  },
+
+  "cancelEditUpdated": {
+    "country": "Australia",
+    "university": "Auto University Melbourne",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2023"
+  },
+
+  "duplicateEditSource": {
+    "country": "New Zealand",
+    "university": "Auto University Auckland Duplicate Edit",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "duplicateEditTarget": {
+    "country": "Australia",
+    "university": "Auto University Sydney Duplicate Edit",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2023"
+  },
+
+  "missingUniversity": {
+    "country": "New Zealand",
+    "university": "",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "missingCountry": {
+    "country": "",
+    "university": "Auto Missing Country University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "missingTitle": {
+    "country": "New Zealand",
+    "university": "Auto Missing Title University",
+    "title": "",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "missingDegree": {
+    "country": "New Zealand",
+    "university": "Auto Missing Degree University",
+    "title": "B.Sc",
+    "degree": "",
+    "graduationYear": "2020"
+  },
+
+  "missingGraduationYear": {
+    "country": "New Zealand",
+    "university": "Auto Missing Year University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": ""
+  },
+
+  "spacesOnlyUniversity": {
+    "country": "New Zealand",
+    "university": "   ",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2022"
+  },
+
+  "spacesOnlyDegree": {
+    "country": "New Zealand",
+    "university": "Auto Spaces Degree University",
+    "title": "B.Sc",
+    "degree": "   ",
+    "graduationYear": "2022"
+  },
+
+  "veryLongUniversity": {
+    "country": "Bolivia",
+    "university": "AutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversityAutoUniversity",
+    "title": "PHD",
+    "degree": "Bio Chemical",
+    "graduationYear": "2008"
+  },
+
+  "updateMissingFieldSource": {
+    "country": "New Zealand",
+    "university": "Auto Update Source University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "updateMissingUniversity": {
+    "country": "Australia",
+    "university": "",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingCountry": {
+    "country": "",
+    "university": "Auto Missing Country Update",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingTitle": {
+    "country": "Australia",
+    "university": "Auto Missing Title Update",
+    "title": "",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingDegree": {
+    "country": "Australia",
+    "university": "Auto Missing Degree Update",
+    "title": "B.A",
+    "degree": "",
+    "graduationYear": "2022"
+  },
+
+  "updateMissingGraduationYear": {
+    "country": "Australia",
+    "university": "Auto Missing Year Update",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": ""
+  },
+
+  "updateSpacesSource": {
+    "country": "New Zealand",
+    "university": "Auto Spaces Update Source",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  },
+
+  "updateSpacesOnlyUniversity": {
+    "country": "Australia",
+    "university": "     ",
+    "title": "B.A",
+    "degree": "Software Engineering",
+    "graduationYear": "2022"
+  },
+
+  "updateSpacesOnlyDegree": {
+    "country": "Australia",
+    "university": "Auto Spaces Degree Update",
+    "title": "B.A",
+    "degree": "     ",
+    "graduationYear": "2022"
+  },
+
+  "duplicateAdd": {
+    "country": "New Zealand",
+    "university": "Auto Duplicate University",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2022"
+  }
+}

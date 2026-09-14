@@ -1,8 +1,7 @@
-using OpenQA.Selenium;
-using Reqnroll;
 using NUnit.Framework;
-using OpenQA.Selenium.Support.UI;
+using Reqnroll;
 using qa_dotnet_cucumber.Pages;
+using TestHooks = qa_dotnet_cucumber.Hooks.Hooks;
 
 namespace qa_dotnet_cucumber.Steps
 {
@@ -12,59 +11,50 @@ namespace qa_dotnet_cucumber.Steps
         private readonly LoginPage _loginPage;
         private readonly NavigationHelper _navigationHelper;
 
-        public LoginSteps(LoginPage loginPage, NavigationHelper navigationHelper)
+        public LoginSteps(LoginPage loginPage,NavigationHelper navigationHelper)
         {
             _loginPage = loginPage;
             _navigationHelper = navigationHelper;
         }
 
-        [Given("I am on the login page")]
-        public void GivenIAmOnTheLoginPage()
+        [Given("I am on the Mars home page")]
+        public void GivenIAmOnTheMarsHomePage()
         {
-            _navigationHelper.NavigateTo("/login");
-            Assert.That(_loginPage.IsAtLoginPage(), Is.True, "Should be on the login page");
+            _navigationHelper.NavigateTo("/Home");
         }
 
-        [When("I enter valid credentials")]
-        public void WhenIEnterValidCredentials()
+        [When("I log in with valid Mars credentials")]
+        public void WhenILogInWithValidMarsCredentials()
         {
-            _loginPage.Login("tomsmith", "SuperSecretPassword!");
+            string email = TestHooks.Settings.Credentials.Email;
+            string password = TestHooks.Settings.Credentials.Password;
+
+            _loginPage.Login(email, password);
         }
 
-        [When("I enter an invalid username and valid password")]
-        public void WhenIEnterAnInvalidUsernameAndValidPassword()
+        [Then("I should be logged in to Mars")]
+        public void ThenIShouldBeLoggedInToMars()
         {
-            _loginPage.Login("invaliduser", "SuperSecretPassword!");
+            Assert.That(
+                _loginPage.IsLoggedIn(),
+                Is.True,
+                "User should be successfully logged in to Mars");
         }
 
-        [When("I enter a valid username and invalid password")]
-        public void WhenIEnterAValidUsernameAndInvalidPassword()
+        [Given("I am logged in to Mars")]
+        public void GivenIAmLoggedInToMars()
         {
-            _loginPage.Login("tomsmith", "wrongpassword");
-        }
+            _navigationHelper.NavigateTo("/Home");
 
-        [When("I enter empty credentials")]
-        public void WhenIEnterEmptyCredentials()
-        {
-            _loginPage.Login("", "");
-        }
+            string email = TestHooks.Settings.Credentials.Email;
+            string password = TestHooks.Settings.Credentials.Password;
 
-        [Then("I should see the secure area")]
-        public void ThenIShouldSeeTheSecureArea()
-        {
-            var successMessage = _loginPage.GetSuccessMessage();
-            Assert.That(successMessage, Does.Contain("You logged into a secure area!"), "Should see successful login message");
-        }
+            _loginPage.Login(email, password);
 
-        [Then("I should see an error message")]
-        public void ThenIShouldSeeAnErrorMessage()
-        {
-            // Use LoginPage's driver to wait for and verify the error message
-            var wait = new WebDriverWait(_loginPage.Driver, TimeSpan.FromSeconds(10));
-            var errorMessageElement = wait.Until(d => d.FindElement(By.CssSelector(".flash.error")));
-            var errorMessage = errorMessageElement.Text;
-            Assert.That(errorMessage, Does.Match("Your username is invalid!|Your password is invalid!|Username is required"), 
-                "Should see an appropriate error message");
+            Assert.That(
+                _loginPage.IsLoggedIn(),
+                Is.True,
+                "User should be successfully logged in to Mars");
         }
     }
 }
