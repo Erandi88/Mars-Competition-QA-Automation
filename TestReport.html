@@ -1,0 +1,2936 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <title></title>
+ <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c439bdbc7bade3d85af3b90e9e69c30ebc87445f/commons/img/logo.png">
+ <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c439bdbc7bade3d85af3b90e9e69c30ebc87445f/commons/img/logo.png">
+ <link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@78fa5a2421587b8228150e93142e5ba97178e85b/spark/css/spark-style.css" rel="stylesheet" />
+ <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@78fa5a2421587b8228150e93142e5ba97178e85b/spark/js/jsontree.js"></script>
+ <style></style>
+</head>
+<body class="spa  standard">
+ <div class="app">
+  <div class="layout">
+   <div class="header navbar">
+ <div class="vheader">
+  <div class="nav-logo">
+   <a href="#">
+	 <div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c43b89d03a7c43dae8bb8f0f078bad1997af6b3b/commons/img/logo.png')"></div>
+   </a>
+  </div>
+  <ul class="nav-left">
+   <li class="search-box">
+	<a class="search-toggle" href="#"><i class="search-icon fa fa-search"></i><i class="search-icon-close fa fa-close"></i></a>
+   </li>
+   <li class="search-input">
+    <input id="search-tests" class="form-control" type="text" placeholder="Search...">
+   </li>
+  </ul>
+  <ul class="nav-right">
+   <li class="m-r-10"><a href="#"><span class="badge badge-primary"></span></a></li>
+   <li class="m-r-10">
+    <a href="#"><span class="badge badge-primary">14/09/2026 5:11:39 pm</span></a>
+   </li>
+  </ul>
+ </div>
+</div>
+   <div class="side-nav">
+ <div class="side-nav-inner">
+  <ul class="side-nav-menu">
+   <li class="nav-item dropdown" onclick="toggleView('test-view')">
+    <a id="nav-test" class="dropdown-toggle" href="#">
+     <span class="ico"><i class="fa fa-list"></i></span>
+    </a>
+   </li>
+   <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+    <a id="nav-dashboard" class="dropdown-toggle" href="#">
+     <span class="ico"><i class="fa fa-bar-chart"></i></span>
+    </a>
+   </li>
+  </ul>
+ </div>
+</div>
+
+   <div class="vcontainer">
+    <div class="main-content">
+     
+
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+      <ul class="tools pull-left">
+        <li><a href="#"><span class="font-size-14">Tests</span></a></li>
+      </ul>
+      <ul class="tools text-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+          <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+ <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>             <div class="dropdown-divider"></div>
+            <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item" status="pass" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add an exact duplicate Certification</p>
+            <p class="text-sm">
+              <span>5:11:43 pm</span> / <span>3628.71 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add an exact duplicate Certification</h5>
+                  <span class='badge badge-success'>14/09/2026 5:11:43 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:11:46 pm</span>
+                  <span class='badge badge-default'>3628.71 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:45</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:45</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:45</td>
+        <td>
+Given Certification from "duplicateAdd" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:46</td>
+        <td>
+When I add Certification using "duplicateAdd"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:46</td>
+        <td>
+Then the duplicate Certification message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:46</td>
+        <td>
+Then only one Certification from "duplicateAdd" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="2"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:11:48 pm</span> / <span>2455.14 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:11:48 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:11:50 pm</span>
+                  <span class='badge badge-default'>2455.14 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:50</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:50</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:50</td>
+        <td>
+When I attempt to add Certification using "missingAllFields"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:50</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:50</td>
+        <td>
+Then no Certification record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:11:52 pm</span> / <span>2638.31 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:11:52 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:11:54 pm</span>
+                  <span class='badge badge-default'>2638.31 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:54</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:54</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:54</td>
+        <td>
+When I attempt to add Certification using "missingYear"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:54</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:54</td>
+        <td>
+Then no Certification record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="4"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:11:56 pm</span> / <span>2598.86 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:11:56 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:11:58 pm</span>
+                  <span class='badge badge-default'>2598.86 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:58</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:58</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:58</td>
+        <td>
+When I attempt to add Certification using "missingCertifiedFrom"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:58</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:11:58</td>
+        <td>
+Then no Certification record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="5"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:12:00 pm</span> / <span>2659.99 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:00 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:02 pm</span>
+                  <span class='badge badge-default'>2659.99 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:02</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:02</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:02</td>
+        <td>
+When I attempt to add Certification using "missingCertificate"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:02</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:02</td>
+        <td>
+Then no Certification record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Certification with valid details</p>
+            <p class="text-sm">
+              <span>5:12:04 pm</span> / <span>2623.34 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Certification with valid details</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:04 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:06 pm</span>
+                  <span class='badge badge-default'>2623.34 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:06</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:06</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:06</td>
+        <td>
+Given Certification from "validAdd" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:06</td>
+        <td>
+When I add Certification using "validAdd"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:06</td>
+        <td>
+Then the Certification from "validAdd" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Cancel editing an existing Certification</p>
+            <p class="text-sm">
+              <span>5:12:08 pm</span> / <span>2956.93 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Cancel editing an existing Certification</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:08 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:11 pm</span>
+                  <span class='badge badge-default'>2956.93 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:10</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:10</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:10</td>
+        <td>
+Given Certification from "cancelEditUpdated" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:11</td>
+        <td>
+Given Certification from "cancelEditExisting" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:11</td>
+        <td>
+When I edit Certification from "cancelEditExisting" using "cancelEditUpdated" and cancel the changes        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:11</td>
+        <td>
+Then the Certification from "cancelEditExisting" should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:11</td>
+        <td>
+Then the Certification from "cancelEditUpdated" should not be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="8"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Delete an existing Certification</p>
+            <p class="text-sm">
+              <span>5:12:13 pm</span> / <span>3200.06 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Delete an existing Certification</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:13 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:16 pm</span>
+                  <span class='badge badge-default'>3200.06 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:15</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:15</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:16</td>
+        <td>
+Given Certification from "validDelete" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:16</td>
+        <td>
+When I delete Certification from "validDelete"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:16</td>
+        <td>
+Then the Certification from "validDelete" should not be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="9"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Edit an existing Certification with valid details</p>
+            <p class="text-sm">
+              <span>5:12:18 pm</span> / <span>3471.78 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Edit an existing Certification with valid details</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:18 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:21 pm</span>
+                  <span class='badge badge-default'>3471.78 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=9</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:20</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:20</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:20</td>
+        <td>
+Given Certification from "validEditUpdated" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:21</td>
+        <td>
+Given Certification from "validEditExisting" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:21</td>
+        <td>
+When I update Certification from "validEditExisting" using "validEditUpdated"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:21</td>
+        <td>
+Then the Certification from "validEditUpdated" should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:21</td>
+        <td>
+Then the Certification from "validEditExisting" should not be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="10"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Certification to match another existing Certification</p>
+            <p class="text-sm">
+              <span>5:12:23 pm</span> / <span>4261.77 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Certification to match another existing Certification</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:23 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:28 pm</span>
+                  <span class='badge badge-default'>4261.77 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=10</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:25</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:25</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:26</td>
+        <td>
+Given Certification from "duplicateEditSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:27</td>
+        <td>
+Given Certification from "duplicateEditTarget" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:27</td>
+        <td>
+When I update Certification from "duplicateEditSource" using "duplicateEditTarget"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:27</td>
+        <td>
+Then the duplicate Certification message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:27</td>
+        <td>
+Then only one Certification from "duplicateEditTarget" should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:28</td>
+        <td>
+When I cancel the certification edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:28</td>
+        <td>
+Then the Certification from "duplicateEditSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="11"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:12:30 pm</span> / <span>3542.94 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:30 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:34 pm</span>
+                  <span class='badge badge-default'>3542.94 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=11</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:32</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:32</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:33</td>
+        <td>
+Given Certification from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:33</td>
+        <td>
+When I attempt to update Certification from "updateMissingFieldSource" using "updateMissingAllFields"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:34</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:34</td>
+        <td>
+When I cancel the certification edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:34</td>
+        <td>
+Then the Certification from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="12"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:12:36 pm</span> / <span>2971.64 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:36 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:39 pm</span>
+                  <span class='badge badge-default'>2971.64 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=12</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:37</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:37</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:38</td>
+        <td>
+Given Certification from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:38</td>
+        <td>
+When I attempt to update Certification from "updateMissingFieldSource" using "updateMissingCertificate"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:38</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:39</td>
+        <td>
+When I cancel the certification edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:39</td>
+        <td>
+Then the Certification from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="13"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:12:40 pm</span> / <span>3527.04 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:40 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:44 pm</span>
+                  <span class='badge badge-default'>3527.04 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=13</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:42</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:42</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:43</td>
+        <td>
+Given Certification from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:43</td>
+        <td>
+When I attempt to update Certification from "updateMissingFieldSource" using "updateMissingCertifiedFrom"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:44</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:44</td>
+        <td>
+When I cancel the certification edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:44</td>
+        <td>
+Then the Certification from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="14"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Certification with missing required field</p>
+            <p class="text-sm">
+              <span>5:12:46 pm</span> / <span>3530.75 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Certification with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:46 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:49 pm</span>
+                  <span class='badge badge-default'>3530.75 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=14</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:48</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:48</td>
+        <td>
+Given I am on the Certification tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:49</td>
+        <td>
+Given Certification from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:49</td>
+        <td>
+When I attempt to update Certification from "updateMissingFieldSource" using "updateMissingYear"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:49</td>
+        <td>
+Then the Certification required-fields message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:49</td>
+        <td>
+When I cancel the certification edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:49</td>
+        <td>
+Then the Certification from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="15"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add an exact duplicate Education</p>
+            <p class="text-sm">
+              <span>5:12:51 pm</span> / <span>3776.85 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add an exact duplicate Education</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:51 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:12:55 pm</span>
+                  <span class='badge badge-default'>3776.85 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=15</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:53</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:53</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:54</td>
+        <td>
+Given Education from "duplicateAdd" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:55</td>
+        <td>
+When I add Education using "duplicateAdd"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:55</td>
+        <td>
+Then the duplicate Education message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:55</td>
+        <td>
+Then only one Education from "duplicateAdd" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="16"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with a very long University value</p>
+            <p class="text-sm">
+              <span>5:12:57 pm</span> / <span>3278.76 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with a very long University value</h5>
+                  <span class='badge badge-success'>14/09/2026 5:12:57 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:00 pm</span>
+                  <span class='badge badge-default'>3278.76 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=16</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:58</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:58</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:59</td>
+        <td>
+Given Education from "veryLongUniversity" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:12:59</td>
+        <td>
+When I add Education using "veryLongUniversity"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:00</td>
+        <td>
+Then the Education from "veryLongUniversity" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="17"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:13:02 pm</span> / <span>2745.46 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:02 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:05 pm</span>
+                  <span class='badge badge-default'>2745.46 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=17</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:04</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:04</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:04</td>
+        <td>
+Given Education from "missingUniversity" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:04</td>
+        <td>
+When I attempt to add Education using "missingUniversity"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:05</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:05</td>
+        <td>
+Then no Education record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="18"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:13:06 pm</span> / <span>2735.35 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:06 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:09 pm</span>
+                  <span class='badge badge-default'>2735.35 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=18</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:08</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:08</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:08</td>
+        <td>
+Given Education from "missingCountry" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:08</td>
+        <td>
+When I attempt to add Education using "missingCountry"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:09</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:09</td>
+        <td>
+Then no Education record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="19"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:13:10 pm</span> / <span>2929.26 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:10 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:13 pm</span>
+                  <span class='badge badge-default'>2929.26 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=19</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:12</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:12</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:12</td>
+        <td>
+Given Education from "missingTitle" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:13</td>
+        <td>
+When I attempt to add Education using "missingTitle"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:13</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:13</td>
+        <td>
+Then no Education record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="20"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:13:14 pm</span> / <span>2287.38 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:14 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:17 pm</span>
+                  <span class='badge badge-default'>2287.38 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=20</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:16</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:16</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:16</td>
+        <td>
+Given Education from "missingDegree" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:17</td>
+        <td>
+When I attempt to add Education using "missingDegree"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:17</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:17</td>
+        <td>
+Then no Education record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="21"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:13:18 pm</span> / <span>2246.15 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:18 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:20 pm</span>
+                  <span class='badge badge-default'>2246.15 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=21</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:20</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:20</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:20</td>
+        <td>
+Given Education from "missingGraduationYear" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:20</td>
+        <td>
+When I attempt to add Education using "missingGraduationYear"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:20</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:20</td>
+        <td>
+Then no Education record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="22"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with spaces-only text field</p>
+            <p class="text-sm">
+              <span>5:13:22 pm</span> / <span>2756.63 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with spaces-only text field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:22 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:24 pm</span>
+                  <span class='badge badge-default'>2756.63 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=22</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:23</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:24</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:24</td>
+        <td>
+Given Education from "spacesOnlyUniversity" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:24</td>
+        <td>
+When I attempt to add Education using "spacesOnlyUniversity"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:24</td>
+        <td>
+Then the invalid Education message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:24</td>
+        <td>
+Then no Education record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="23"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with spaces-only text field</p>
+            <p class="text-sm">
+              <span>5:13:26 pm</span> / <span>2801.13 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with spaces-only text field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:26 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:29 pm</span>
+                  <span class='badge badge-default'>2801.13 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=23</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:28</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:28</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:28</td>
+        <td>
+Given Education from "spacesOnlyDegree" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:28</td>
+        <td>
+When I attempt to add Education using "spacesOnlyDegree"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:29</td>
+        <td>
+Then the invalid Education message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:29</td>
+        <td>
+Then no Education record should be created        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="24"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Add Education with valid details</p>
+            <p class="text-sm">
+              <span>5:13:30 pm</span> / <span>2796.05 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Add Education with valid details</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:30 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:33 pm</span>
+                  <span class='badge badge-default'>2796.05 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=24</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:32</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:32</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:32</td>
+        <td>
+Given Education from "validAdd" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:32</td>
+        <td>
+When I add Education using "validAdd"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:33</td>
+        <td>
+Then the Education from "validAdd" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="25"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Cancel editing an existing Education</p>
+            <p class="text-sm">
+              <span>5:13:35 pm</span> / <span>3204.02 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Cancel editing an existing Education</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:35 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:38 pm</span>
+                  <span class='badge badge-default'>3204.02 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=25</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:36</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:37</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:37</td>
+        <td>
+Given Education from "cancelEditExisting" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:37</td>
+        <td>
+Given Education from "cancelEditUpdated" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:38</td>
+        <td>
+When I edit Education from "cancelEditExisting" using "cancelEditUpdated" and cancel the changes        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:38</td>
+        <td>
+Then the Education from "cancelEditExisting" should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:38</td>
+        <td>
+Then the Education from "cancelEditUpdated" should not be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="26"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Delete an existing Education with valid details</p>
+            <p class="text-sm">
+              <span>5:13:40 pm</span> / <span>3368.32 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Delete an existing Education with valid details</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:40 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:43 pm</span>
+                  <span class='badge badge-default'>3368.32 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=26</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:42</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:42</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:43</td>
+        <td>
+Given Education from "validDelete" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:43</td>
+        <td>
+When I delete Education from "validDelete"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:43</td>
+        <td>
+Then the Education from "validDelete" should not be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="27"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Edit an existing Education with valid details</p>
+            <p class="text-sm">
+              <span>5:13:45 pm</span> / <span>3782.77 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Edit an existing Education with valid details</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:45 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:48 pm</span>
+                  <span class='badge badge-default'>3782.77 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=27</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:46</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:47</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:47</td>
+        <td>
+Given Education from "validEditUpdated" does not exist        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:47</td>
+        <td>
+Given Education from "validEditExisting" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:48</td>
+        <td>
+When I update Education from "validEditExisting" using "validEditUpdated"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:48</td>
+        <td>
+Then the Education from "validEditUpdated" should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:48</td>
+        <td>
+Then the Education from "validEditExisting" should not be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="28"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education to match another existing Education</p>
+            <p class="text-sm">
+              <span>5:13:50 pm</span> / <span>4810.66 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education to match another existing Education</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:50 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:13:55 pm</span>
+                  <span class='badge badge-default'>4810.66 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=28</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:52</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:52</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:53</td>
+        <td>
+Given Education from "duplicateEditSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:54</td>
+        <td>
+Given Education from "duplicateEditTarget" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:55</td>
+        <td>
+When I update Education from "duplicateEditSource" using "duplicateEditTarget"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:55</td>
+        <td>
+Then the duplicate Education message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:55</td>
+        <td>
+Then only one Education from "duplicateEditTarget" should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:55</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:13:55</td>
+        <td>
+Then the Education from "duplicateEditSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="29"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:13:58 pm</span> / <span>3799.75 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:13:58 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:02 pm</span>
+                  <span class='badge badge-default'>3799.75 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=29</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:00</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:00</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:01</td>
+        <td>
+Given Education from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:01</td>
+        <td>
+When I attempt to update Education from "updateMissingFieldSource" using "updateMissingUniversity"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:02</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:02</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:02</td>
+        <td>
+Then the Education from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="30"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:14:04 pm</span> / <span>3861.18 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:14:04 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:07 pm</span>
+                  <span class='badge badge-default'>3861.18 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=30</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:05</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:05</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:06</td>
+        <td>
+Given Education from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:07</td>
+        <td>
+When I attempt to update Education from "updateMissingFieldSource" using "updateMissingCountry"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:07</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:07</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:07</td>
+        <td>
+Then the Education from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="31"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:14:09 pm</span> / <span>3881.12 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:14:09 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:13 pm</span>
+                  <span class='badge badge-default'>3881.12 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=31</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:11</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:11</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:12</td>
+        <td>
+Given Education from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:13</td>
+        <td>
+When I attempt to update Education from "updateMissingFieldSource" using "updateMissingTitle"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:13</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:13</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:13</td>
+        <td>
+Then the Education from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="32"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:14:15 pm</span> / <span>3793.85 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:14:15 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:19 pm</span>
+                  <span class='badge badge-default'>3793.85 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=32</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:17</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:17</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:18</td>
+        <td>
+Given Education from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:18</td>
+        <td>
+When I attempt to update Education from "updateMissingFieldSource" using "updateMissingDegree"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:19</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:19</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:19</td>
+        <td>
+Then the Education from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="33"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education with missing required field</p>
+            <p class="text-sm">
+              <span>5:14:21 pm</span> / <span>3778.72 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education with missing required field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:14:21 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:25 pm</span>
+                  <span class='badge badge-default'>3778.72 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=33</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:23</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:23</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:24</td>
+        <td>
+Given Education from "updateMissingFieldSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:24</td>
+        <td>
+When I attempt to update Education from "updateMissingFieldSource" using "updateMissingGraduationYear"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:25</td>
+        <td>
+Then the Education validation message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:25</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:25</td>
+        <td>
+Then the Education from "updateMissingFieldSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="34"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education with spaces-only text field</p>
+            <p class="text-sm">
+              <span>5:14:27 pm</span> / <span>3797.66 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education with spaces-only text field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:14:27 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:31 pm</span>
+                  <span class='badge badge-default'>3797.66 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=34</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:29</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:29</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:30</td>
+        <td>
+Given Education from "updateSpacesSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:30</td>
+        <td>
+When I attempt to update Education from "updateSpacesSource" using "updateSpacesOnlyUniversity"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:30</td>
+        <td>
+Then the invalid Education message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:30</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:31</td>
+        <td>
+Then the Education from "updateSpacesSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="35"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Update Education with spaces-only text field</p>
+            <p class="text-sm">
+              <span>5:14:32 pm</span> / <span>3730.4 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Update Education with spaces-only text field</h5>
+                  <span class='badge badge-success'>14/09/2026 5:14:32 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:36 pm</span>
+                  <span class='badge badge-default'>3730.4 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=35</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:34</td>
+        <td>
+Given I am logged in to Mars        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:34</td>
+        <td>
+Given I am on the Education tab        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:35</td>
+        <td>
+Given Education from "updateSpacesSource" exists        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:36</td>
+        <td>
+When I attempt to update Education from "updateSpacesSource" using "updateSpacesOnlyDegree"        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:36</td>
+        <td>
+Then the invalid Education message should be displayed        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:36</td>
+        <td>
+When I cancel the education edit        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:36</td>
+        <td>
+Then the Education from "updateSpacesSource" should be displayed        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+        <li class="test-item" status="pass" test-id="36"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Perform a successful Mars login</p>
+            <p class="text-sm">
+              <span>5:14:38 pm</span> / <span>1809.67 ms</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+            <div class="detail-head">
+              <div class="p-v-10">
+                <div class="info">
+                  <h5 class="test-status text-pass">Perform a successful Mars login</h5>
+                  <span class='badge badge-success'>14/09/2026 5:14:38 pm</span>
+                  <span class='badge badge-danger'>14/09/2026 5:14:40 pm</span>
+                  <span class='badge badge-default'>1809.67 ms</span>
+                  &middot; <span class='uri-anchor badge badge-default'>#test-id=36</span>
+                  <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+                  <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+                  <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+                </div>
+              </div>
+            </div>
+
+
+<div class="detail-body mt-4">
+
+
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:39</td>
+        <td>
+Given I am on the Mars home page        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:39</td>
+        <td>
+When I log in with valid Mars credentials        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>Sept 14, 2026 17:14:40</td>
+        <td>
+Then I should be logged in to Mars        </td>
+      </tr>
+  </tbody>
+</table></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="test-content scrollable">
+    <div class="test-content-tools">
+      <ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+    </div>
+    <div class="test-content-detail"><div class="detail-body"></div></div>
+  </div>
+</div>
+
+     
+
+<div class="container-fluid p-4 view dashboard-view">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card"><div class="card-body">
+          <p class="m-b-0">Started</p>
+          <h3>14/09/2026 5:11:39 pm</h3>
+      </div></div>
+    </div>
+    <div class="col-md-3">
+      <div class="card"><div class="card-body">
+          <p class="m-b-0">Ended</p>
+          <h3>14/09/2026 5:14:40 pm</h3>
+      </div></div>
+    </div>
+    <div class="col-md-3">
+      <div class="card"><div class="card-body">
+          <p class="m-b-0 text-pass">Tests Passed</p>
+          <h3>36</h3>
+      </div></div>
+    </div>
+    <div class="col-md-3">
+      <div class="card"><div class="card-body">
+          <p class="m-b-0 text-fail">Tests Failed</p>
+          <h3>0</h3>
+      </div></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Tests</h6>
+        </div>
+        <div class="card-body">
+          <div class="">
+            <canvas id='parent-analysis' width='115' height='90'></canvas>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div><small data-tooltip='1%'>
+            <b>36</b> tests passed
+            </small>
+          </div>
+          <div>
+            <small data-tooltip='0%'><b>0</b> tests failed, 
+            <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h6 class="card-title">Log events</h6>
+        </div>
+        <div class="card-body">
+          <div class="">
+            <canvas id='events-analysis' width='115' height='90'></canvas>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div><small data-tooltip='1%'><b>225</b> events passed</small></div>
+          <div>
+            <small data-tooltip='0%'><b>0</b> events failed, 
+            <b data-tooltip='%'>0</b> others
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row"><div class="col-md-12">
+    <div class="card"><div class="card-header"><p>Timeline</p></div>
+      <div class="card-body pt-0"><div>
+        <canvas id="timeline" height="120"></canvas>
+      </div></div>
+    </div>
+  </div></div>
+  <script>
+	var timeline = { "Add an exact duplicate Certification":3628.7082,"Add Certification with missing required field":2455.1421,"Add Certification with missing required field":2638.3092,"Add Certification with missing required field":2598.8627,"Add Certification with missing required field":2659.9853,"Add Certification with valid details":2623.3385,"Cancel editing an existing Certification":2956.9282,"Delete an existing Certification":3200.0574,"Edit an existing Certification with valid details":3471.7801,"Update Certification to match another existing Certification":4261.7673,"Update Certification with missing required field":3542.9362,"Update Certification with missing required field":2971.638,"Update Certification with missing required field":3527.0361,"Update Certification with missing required field":3530.7519,"Add an exact duplicate Education":3776.8499,"Add Education with a very long University value":3278.7637,"Add Education with missing required field":2745.4617,"Add Education with missing required field":2735.3546,"Add Education with missing required field":2929.2571,"Add Education with missing required field":2287.3787,"Add Education with missing required field":2246.147,"Add Education with spaces-only text field":2756.6316,"Add Education with spaces-only text field":2801.1254,"Add Education with valid details":2796.052,"Cancel editing an existing Education":3204.0157,"Delete an existing Education with valid details":3368.315,"Edit an existing Education with valid details":3782.7689,"Update Education to match another existing Education":4810.6603,"Update Education with missing required field":3799.7472,"Update Education with missing required field":3861.1776,"Update Education with missing required field":3881.1237,"Update Education with missing required field":3793.8508,"Update Education with missing required field":3778.7201,"Update Education with spaces-only text field":3797.6616,"Update Education with spaces-only text field":3730.398,"Perform a successful Mars login":1809.6695 };
+  </script>
+  <div class="row">
+      <div class="col-md-4 sysenv-container">
+      <div class="card">
+        <div class="card-header"><p>System/Environment</p></div>
+        <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+          <thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Environment</td>
+              <td>http://localhost:5003</td>
+            </tr>
+            <tr>
+              <td>Browser</td>
+              <td>Chrome</td>
+            </tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var statusGroup = {
+    parentCount: 36,
+    childCount: 0,
+    grandChildCount: 0,
+    eventsCount: 225,
+
+passParent:36,failParent:0,warningParent:0,skipParent:0,    
+passChild:0,failChild:0,warningChild:0,skipChild:0,infoChild:0,    
+passGrandChild:0,failGrandChild:0,warningGrandChild:0,skipGrandChild:0,infoGrandChild:0,    
+passEvents:225,failEvents:0,warningEvents:0,skipEvents:0,infoEvents:0,  };
+</script>
+
+    </div>
+   </div>
+  </div>
+ </div>
+ <script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c439bdbc7bade3d85af3b90e9e69c30ebc87445f/spark/js/spark-script.js"></script>
+<script type='text/javascript'></script>
+</body>
+</html>

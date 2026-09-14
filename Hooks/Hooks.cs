@@ -34,11 +34,7 @@ namespace qa_dotnet_cucumber.Hooks
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            /*string currentDir = Directory.GetCurrentDirectory();
-            string settingsPath = Path.Combine(currentDir, "settings.json");
-            string json = File.ReadAllText(settingsPath);
-            _settings = JsonSerializer.Deserialize<TestSettings>(json);*/
-
+            
             string currentDir = Directory.GetCurrentDirectory();
 
             string localSettingsPath = Path.Combine(currentDir, "settings.local.json");
@@ -57,7 +53,8 @@ namespace qa_dotnet_cucumber.Hooks
             Console.WriteLine($"Using settings file: {Path.GetFileName(settingsPath)}");
 
             // Get project root by navigating up from bin/Debug/net8.0
-            string projectRoot = Path.GetFullPath(Path.Combine(currentDir, "..", ".."));
+            //string projectRoot = Path.GetFullPath(Path.Combine(currentDir, "..", ".."));
+            string projectRoot = Path.GetFullPath(Path.Combine(currentDir, "..", "..", ".."));
             string reportFileName = _settings.Report.Path.TrimStart('/'); // e.g., "TestReport.html"
             string reportPath = Path.Combine(projectRoot, reportFileName);
 
@@ -80,7 +77,8 @@ namespace qa_dotnet_cucumber.Hooks
                 chromeOptions.AddArgument("--headless");
             }
             var driver = new ChromeDriver(chromeOptions);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(_settings.Browser.TimeoutSeconds);
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(_settings.Browser.TimeoutSeconds);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.Zero;
             driver.Manage().Window.Maximize();
 
             _objectContainer.RegisterInstanceAs<IWebDriver>(driver);
@@ -128,86 +126,22 @@ namespace qa_dotnet_cucumber.Hooks
 
             try
             {
-                var testDataContext =
-                    _objectContainer.Resolve<TestDataContext>();
+                var testDataContext = _objectContainer.Resolve<TestDataContext>();
 
-                var educationPage =
-                    _objectContainer.Resolve<EducationPage>();
+                var educationPage = _objectContainer.Resolve<EducationPage>();
 
-                var certificationPage =
-                    _objectContainer.Resolve<CertificationPage>();
+                var certificationPage = _objectContainer.Resolve<CertificationPage>();
 
+                CleanupEducation(testDataContext, educationPage);
 
-                // -------------------------
-                // Education cleanup
-                // -------------------------
-
-                //educationPage.CancelEducationEditIfOpen();
-
-                foreach (var education in testDataContext.CreatedEducations)
-                {
-                    educationPage.DeleteEducationIfExists(
-                        education.Country,
-                        education.University,
-                        education.Title,
-                        education.Degree,
-                        education.GraduationYear);
-
-                    bool isEducationRemoved =
-                        educationPage.IsEducationRemoved(
-                            education.Country,
-                            education.University,
-                            education.Title,
-                            education.Degree,
-                            education.GraduationYear);
-
-                    if (isEducationRemoved)
-                    {
-                        Console.WriteLine(
-                            $"Education cleanup successful: {education.University}");
-                    }
-                    else
-                    {
-                        Console.WriteLine(
-                            $"Education cleanup warning: Could not remove {education.University}");
-                    }
-                }
-
-
-                // -------------------------
-                // Certification cleanup
-                // -------------------------
-
-                foreach (var certification in testDataContext.CreatedCertifications)
-                {
-                    certificationPage.DeleteCertificationIfExists(
-                        certification.Certificate,
-                        certification.CertifiedFrom,
-                        certification.Year);
-
-                    bool isCertificationRemoved =
-                        certificationPage.IsCertificationRemoved(
-                            certification.Certificate,
-                            certification.CertifiedFrom,
-                            certification.Year);
-
-                    if (isCertificationRemoved)
-                    {
-                        Console.WriteLine(
-                            $"Certification cleanup successful: {certification.Certificate}");
-                    }
-                    else
-                    {
-                        Console.WriteLine(
-                            $"Certification cleanup warning: Could not remove {certification.Certificate}");
-                    }
-                }
+                CleanupCertifications(testDataContext, certificationPage);
             }
             finally
             {
-                driver?.Quit();
+                driver.Quit();
 
-                Console.WriteLine("Browser closed after scenario.");
+                Console.WriteLine(
+                    "Browser closed after scenario.");
             }
         }
 
@@ -218,6 +152,55 @@ namespace qa_dotnet_cucumber.Hooks
             {
                 Console.WriteLine("AfterTestRun executed - Flushing report to: " + _settings.Report.Path + " at " + DateTime.Now);
                 _extent!.Flush();
+            }
+        }
+
+        //Helper methods for clean up
+        private void CleanupEducation(TestDataContext testDataContext,EducationPage educationPage)
+        {
+            foreach (var education in testDataContext.CreatedEducations)
+            {
+                educationPage.DeleteEducationIfExists(
+                    education.Country,
+                    education.University,
+                    education.Title,
+                    education.Degree,
+                    education.GraduationYear);
+
+                bool isRemoved =
+                    educationPage.IsEducationRemoved(
+                        education.Country,
+                        education.University,
+                        education.Title,
+                        education.Degree,
+                        education.GraduationYear);
+
+                Console.WriteLine(
+                    isRemoved
+                        ? $"Education cleanup successful: {education.University}"
+                        : $"Education cleanup warning: Could not remove {education.University}");
+            }
+        }
+
+        private void CleanupCertifications(TestDataContext testDataContext, CertificationPage certificationPage)
+        {
+            foreach (var certification in testDataContext.CreatedCertifications)
+            {
+                certificationPage.DeleteCertificationIfExists(
+                    certification.Certificate,
+                    certification.CertifiedFrom,
+                    certification.Year);
+
+                bool isRemoved =
+                    certificationPage.IsCertificationRemoved(
+                        certification.Certificate,
+                        certification.CertifiedFrom,
+                        certification.Year);
+
+                Console.WriteLine(
+                    isRemoved
+                        ? $"Certification cleanup successful: {certification.Certificate}"
+                        : $"Certification cleanup warning: Could not remove {certification.Certificate}");
             }
         }
     }

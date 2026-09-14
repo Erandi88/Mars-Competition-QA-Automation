@@ -180,8 +180,6 @@ namespace qa_dotnet_cucumber.Pages
             var elements =
                 _driver.FindElements(deleteButton);
 
-            Console.WriteLine("Element count : " + elements.Count());
-
             if (elements.Count > 0)
             {
                 elements[0].Click();
@@ -308,11 +306,6 @@ namespace qa_dotnet_cucumber.Pages
         public void AttemptToAddCertification(string certificate, string certifiedFrom, string year)
         {
             ClickAddNewButton();
-
-            Console.WriteLine(string.IsNullOrEmpty(certificate));
-            Console.WriteLine(string.IsNullOrEmpty(certifiedFrom));
-            Console.WriteLine(string.IsNullOrEmpty(year));
-
 
             if (!string.IsNullOrEmpty(certificate))
             {

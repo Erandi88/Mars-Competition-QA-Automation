@@ -201,8 +201,7 @@ namespace qa_dotnet_cucumber.Pages
 
         public void AddEducation(string university, string country, string title,string degree,string graduationYear)
         {
-            Console.WriteLine("Add Education Full method");
-
+            
             ClickAddNewButton();
 
             EnterUniversity(university);
@@ -271,11 +270,9 @@ namespace qa_dotnet_cucumber.Pages
         public void AttemptToAddEducation(string university, string country, string title, string degree, string graduationYear)
         {
             ClickAddNewButton();
-            Console.WriteLine("Status uni spce 1" +string.IsNullOrEmpty(university));
-            Console.WriteLine("Status degree spce 1" + string.IsNullOrEmpty(degree));
+            
             if (!string.IsNullOrEmpty(university))
             {
-                Console.WriteLine("Status uni spce 2 "+ !string.IsNullOrEmpty(university));
                 EnterUniversity(university);
             }
 
@@ -291,7 +288,6 @@ namespace qa_dotnet_cucumber.Pages
 
             if (!string.IsNullOrEmpty(degree))
             {
-                Console.WriteLine("Status degree spce 2" + !string.IsNullOrEmpty(degree));
                 EnterDegree(degree);
             }
 
@@ -379,10 +375,7 @@ namespace qa_dotnet_cucumber.Pages
 
             var elements = _driver.FindElements(deleteButton);
 
-            Console.WriteLine("Elementcount : "+elements.Count());
-
-
-            if (elements.Count > 0)
+           if (elements.Count > 0)
             {
                 elements[0].Click();
             }
@@ -531,8 +524,6 @@ namespace qa_dotnet_cucumber.Pages
             {
                 SelectGraduationYear(updatedGraduationYear);
             }
-
-            //Console.WriteLine( $"University value before Update: '{GetUniversityValue()}'");
 
             ClickUpdateButton();
         }
