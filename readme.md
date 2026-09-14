@@ -1,199 +1,419 @@
-# QA-DotNet-Cucumber Framework
+# Mars Competition - Education and Certification Test Automation
 
-A .NET-based test automation framework using Reqnroll (Cucumber for .NET), Selenium WebDriver, and NUnit. This framework
-is designed to test web applications with a clean, maintainable structure.
+This project contains the manual test documentation and automated test suite developed for the Mars Competition Task.
 
-## Overview
+The automation covers the **Education** and **Certification** profile features in Project Mars.
 
-This framework provides automated functional testing for web applications with the following features:
+The framework uses .NET 8, Reqnroll, Selenium WebDriver, NUnit, JSON-based test data, Page Object Model (POM), and ExtentReports.
 
-- **Reqnroll**: Implements Cucumber's Gherkin syntax for readable tests
-- **Selenium WebDriver**: Handles browser interactions
-- **NUnit**: Manages test execution and assertions
-- **ExtentReports**: Generates HTML test reports
-- **Page Object Model (POM)**: Separates test logic from page interactions
+## Technology Stack
 
-## Prerequisites
+- **.NET 8**
+- **Reqnroll** - BDD framework using Gherkin syntax
+- **Selenium WebDriver** - Browser automation
+- **NUnit** - Test execution and assertions
+- **ExtentReports** - HTML test reporting
+- **WebDriverManager** - ChromeDriver management
+- **JSON** - External test data
+- **Page Object Model (POM)** - Separation of test logic and UI interaction
 
-- **.NET SDK**: Version 8.0 or higher (install from [dotnet.microsoft.com](https://dotnet.microsoft.com))
-- **IDE**: Visual Studio Code or Visual Studio (recommended)
-- **Chrome Browser**: Required for Selenium WebDriver (ChromeDriver version must match your browser version via
-  WebDriverManager)
+## Features Covered
+
+### Education
+
+Automation coverage includes:
+
+- Add Education with valid details
+- Edit Education with valid details
+- Delete Education
+- Cancel Education edit
+- Missing required fields
+- Spaces-only text fields
+- Duplicate Education records
+- Duplicate Education update
+- Very long University value / boundary testing
+
+### Certification
+
+Automation coverage includes:
+
+- Add Certification with valid details
+- Edit Certification with valid details
+- Delete Certification
+- Cancel Certification edit
+- Missing required fields
+- Spaces-only text fields
+- Exact duplicate Certification
+- Duplicate Certification update
+
+## Final Test Execution
+
+The final regression execution completed successfully:
+
+- **Total tests:** 36
+- **Passed:** 36
+- **Failed:** 0
+- **Skipped:** 0
 
 ## Project Structure
 
+```text
+├── Config/
+│   └── Configuration models for browser, environment, report and credentials
+│
+├── Context/
+│   └── TestDataContext.cs
+│       Tracks Education and Certification records created during each scenario
+│
+├── Features/
+│   ├── Login.feature
+│   ├── Education.feature
+│   └── Certification.feature
+│
+├── Helpers/
+│   └── JsonDataReader.cs
+│       Reads external JSON test data
+│
+├── Hooks/
+│   └── Hooks.cs
+│       WebDriver setup, dependency registration, reporting,
+│       screenshots and scenario cleanup
+│
+├── Models/
+│   ├── EducationData.cs
+│   └── CertificationData.cs
+│
+├── Pages/
+│   ├── LoginPage.cs
+│   ├── EducationPage.cs
+│   ├── CertificationPage.cs
+│   └── NavigationHelper.cs
+│
+├── Steps/
+│   ├── LoginSteps.cs
+│   ├── EducationSteps.cs
+│   └── CertificationSteps.cs
+│
+├── TestData/
+│   ├── EducationTestData.json
+│   └── CertificationTestData.json
+│
+├── TestCases/
+│   └── Mars_Competition_Education_Certification_TestCases.xlsx
+│
+├── Tests/
+│
+├── settings.json
+├── reqnroll.json
+├── parallel.runsettings
+└── qa-dotnet-cucumber.csproj
 ```
-├── Features/           # Gherkin feature files
-├── Steps/              # C# step implementations
-├── Pages/              # Page Object Model classes
-├── Hooks/              # Setup and teardown logic
-├── Config/             # Configuration classes
-├── Tests/              # NUnit test runner
-└── settings.json       # Configuration file
+
+## Framework Architecture
+
+The framework follows the Page Object Model pattern.
+
+The test flow is:
+
+```text
+Feature File
+    ↓
+Step Definition
+    ↓
+JSON Test Data
+    ↓
+Page Object
+    ↓
+Selenium WebDriver
+    ↓
+Mars Application
+    ↓
+Assertion
+    ↓
+ExtentReport
 ```
 
-## Getting Started
+### Feature Files
 
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd qa-dotnet-cucumber
-   ```
-
-2. Restore dependencies:
-   ```bash
-   dotnet restore
-   ```
-
-### Configuration
-
-1. Configure `settings.json` in the project root:
-   ```json
-   {
-     "Browser": {
-       "Type": "Chrome",
-       "Headless": false,
-       "TimeoutSeconds": 30
-     },
-     "Report": {
-       "Path": "TestReport.html",
-       "Title": "Test Automation Report"
-     },
-     "Environment": {
-       "BaseUrl": "http://the-internet.herokuapp.com" 
-     }
-   }
-   ```
-   Note: Update `BaseUrl` to match your test environment.
-
-### Running Tests
-
-1. Execute tests:
-   ```bash
-   dotnet test
-   ```
-
-2. View results:
-    - Open `TestReport.html` in your browser to see the test report
-
-## Writing Tests
-
-### Feature Files (Gherkin)
-
-Create feature files in the `Features/` directory:
+Reqnroll feature files contain the BDD scenarios written using:
 
 ```gherkin
-Feature: Login Functionality
-As a user, I want to log in to access restricted content.
-
-Scenario: Perform a successful login
-  Given I am on the login page
-  When I enter valid credentials
-  Then I should see the secure area
+Given
+When
+Then
 ```
+
+Scenario Outlines are used where the same test logic needs to execute against multiple datasets.
 
 ### Step Definitions
 
-Implement steps in `StepDefinitions/`:
+Step-definition classes connect the Gherkin scenarios to the automation code.
 
-```csharp
-[Binding]
-public class LoginSteps
+Assertions are performed in the step-definition layer rather than inside the Page Object classes.
+
+### Page Objects
+
+Page Object classes contain:
+
+- Selenium locators
+- Browser interactions
+- Explicit waits
+- Add/Edit/Delete operations
+- UI verification methods
+
+This keeps Selenium implementation details separate from the test scenarios.
+
+### Hooks
+
+`Hooks.cs` manages the test lifecycle.
+
+It is responsible for:
+
+- Loading configuration
+- Creating ChromeDriver
+- Registering Page Objects using dependency injection
+- Creating scenario-scoped `TestDataContext`
+- Starting ExtentReports
+- Logging test steps
+- Capturing screenshots when a step fails
+- Cleaning up Education and Certification test data
+- Closing the browser after each scenario
+- Flushing the final HTML report
+
+## JSON Test Data
+
+Test data is stored outside the feature files and C# test methods.
+
+The project contains:
+
+```text
+TestData/
+├── EducationTestData.json
+└── CertificationTestData.json
+```
+
+Each dataset has a unique key.
+
+Example Education data:
+
+```json
 {
-    private readonly LoginPage _loginPage;
-    private readonly NavigationHelper _navigationHelper;
-
-    public LoginSteps(LoginPage loginPage, NavigationHelper navigationHelper)
-    {
-        _loginPage = loginPage;
-        _navigationHelper = navigationHelper;
-    }
-
-    [Given("I am on the login page")]
-    public void GivenIAmOnTheLoginPage()
-    {
-        _navigationHelper.NavigateTo("/login");
-    }
-
-    [When("I enter valid credentials")]
-    public void WhenIEnterValidCredentials()
-    {
-        _loginPage.Login("tomsmith", "SuperSecretPassword!");
-    }
-
-    [Then("I should see the secure area")]
-    public void ThenIShouldSeeTheSecureArea()
-    {
-        var successMessage = _loginPage.GetSuccessMessage();
-        Assert.That(successMessage, Does.Contain("You logged into a secure area!"));
-    }
+  "validAdd": {
+    "country": "New Zealand",
+    "university": "Auto University Auckland",
+    "title": "B.Sc",
+    "degree": "Computer Science",
+    "graduationYear": "2020"
+  }
 }
 ```
 
-### Page Object Model
+`JsonDataReader` reads the requested dataset and converts it into an `EducationData` or `CertificationData` object.
 
-Create page classes in `Pages/`:
+Example flow:
 
-```csharp
-public class LoginPage
+```text
+"validAdd"
+    ↓
+JsonDataReader
+    ↓
+EducationTestData.json
+    ↓
+EducationData object
+    ↓
+Step Definition
+    ↓
+EducationPage
+```
+
+This prevents test data from being hardcoded inside the automation logic.
+
+## Test Data Cleanup
+
+Each scenario manages its own test data.
+
+`TestDataContext` keeps track of records created during the scenario.
+
+Example:
+
+```text
+Scenario creates Education
+        ↓
+Education is added to CreatedEducations
+        ↓
+Test continues
+        ↓
+AfterScenario executes
+        ↓
+Created record is deleted
+```
+
+The same approach is used for Certification records.
+
+This helps keep scenarios independent and prevents test data from affecting later tests.
+
+## Configuration
+
+The tracked `settings.json` contains the common project configuration.
+
+Example:
+
+```json
 {
-    private readonly IWebDriver _driver;
-    private readonly By UsernameField = By.Id("username");
-    private readonly By PasswordField = By.Id("password");
-    private readonly By LoginButton = By.CssSelector("button[type='submit']");
-    private readonly By SuccessMessage = By.CssSelector(".flash.success");
-
-    public LoginPage(IWebDriver driver)
-    {
-        _driver = driver;
-    }
-
-    public void Login(string username, string password)
-    {
-        _driver.FindElement(UsernameField).SendKeys(username);
-        _driver.FindElement(PasswordField).SendKeys(password);
-        _driver.FindElement(LoginButton).Click();
-    }
-
-    public string GetSuccessMessage()
-    {
-        return _driver.FindElement(SuccessMessage).Text;
-    }
+  "Browser": {
+    "Type": "Chrome",
+    "Headless": false,
+    "TimeoutSeconds": 30
+  },
+  "Report": {
+    "Path": "TestReport.html",
+    "Title": "Test Automation Report"
+  },
+  "Environment": {
+    "BaseUrl": "http://localhost:5003"
+  },
+  "Credentials": {
+    "Email": "your-email@example.com",
+    "Password": "your-password"
+  }
 }
 ```
 
-## Configuration Options
+Real credentials are stored locally in:
 
-- **Browser Settings**:
-    - `Type`: Currently supports "Chrome"
-    - `Headless`: Set to `true` for headless execution
-    - `TimeoutSeconds`: Default wait timeout
+```text
+settings.local.json
+```
 
-- **Report Settings**:
-    - `Path`: Output report filename
-    - `Title`: Report title
+`settings.local.json` is excluded from Git and must not be committed.
 
-- **Environment Settings**:
-    - `BaseUrl`: Target application URL
+When available, the framework loads `settings.local.json`; otherwise it falls back to `settings.json`.
 
-## Best Practices
+## Prerequisites
 
-1. **Adding New Tests**:
-    - Write a new `.feature` file
-    - Implement steps in a new or existing step definition class
-    - Follow the Page Object Model pattern
+Before running the tests, install:
 
-2. **Debugging**:
-    - Use IDE breakpoints in step definitions or page objects
-    - Check the HTML report for test execution details
+- .NET 8 SDK
+- Visual Studio or another compatible .NET IDE
+- Google Chrome
+- Local Mars application
 
-3. **Extending the Framework**:
-    - Add new page classes for different parts of the application
-    - Keep page objects focused and maintainable
-    - Follow the Single Responsibility Principle
+Mars should be available at:
 
-## Support
+```text
+http://localhost:5003
+```
 
-For additional help or questions, please reach out to the team or create an issue in the repository.
+## Running the Tests
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Erandi88/Mars-Competition-QA-Automation.git
+```
+
+Move into the project folder.
+
+### 2. Restore dependencies
+
+```bash
+dotnet restore
+```
+
+### 3. Configure credentials
+
+Create a local file:
+
+```text
+settings.local.json
+```
+
+Use the same structure as `settings.json` and enter valid Mars login credentials.
+
+Do not commit this file to GitHub.
+
+### 4. Start Project Mars
+
+Make sure the Mars application is running locally at:
+
+```text
+http://localhost:5003
+```
+
+### 5. Run the tests
+
+```bash
+dotnet test
+```
+
+Tests can also be executed using Visual Studio Test Explorer.
+
+## Reporting
+
+ExtentReports is integrated into the framework.
+
+After execution, the report is generated as:
+
+```text
+TestReport.html
+```
+
+The report contains:
+
+- Scenario names
+- Given/When/Then step results
+- Pass/fail status
+- Execution duration
+- Screenshots for failed steps
+
+## Evidence
+
+The final submission contains an `Evidence` folder with:
+
+```text
+Evidence/
+├── Screenshot_TestPassed
+└── Screenshot_TestReport
+```
+
+These provide evidence of the successful regression run and ExtentReports implementation.
+
+## Manual Test Cases
+
+The manual test cases for User Story 1 are stored in:
+
+```text
+TestCases/
+└── Mars_Competition_Education_Certification_TestCases.xlsx
+```
+
+The workbook contains:
+
+- Test steps
+- Test data
+- Expected results
+- Actual results
+- Test status
+- Testing category
+- Automation decision
+- Priority
+
+## Git Workflow
+
+Development was completed on the feature branch:
+
+```text
+feature/education-certification-automation
+```
+
+A Pull Request was created to merge the completed work into `main`.
+
+## Pull Request
+
+Mars Competition - Education and Certification Test Automation
+
+PR:
+
+```text
+https://github.com/Erandi88/Mars-Competition-QA-Automation/pull/1
+```
